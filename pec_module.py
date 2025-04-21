@@ -8,7 +8,20 @@ from qiskit.providers.backend import BackendV1
 from qiskit.quantum_info import Pauli, SparsePauliOp
 from qiskit_ibm_runtime import QiskitRuntimeService, EstimatorV2 as Estimator
 
-# --- IBM 連線與後端設定 ---
+#Construct Pauli Pairs
+pauli = ["I", "X", "Y", "Z"]
+pauli_pair = {}
+for i in pauli:
+    for j in pauli:
+        pauli_pair.update({f"{i}{j}":np.array(Pauli(f"{i}{j}").to_matrix())})        
+
+#Build Cnot Matrrix
+Cnot = np.array([[1, 0, 0, 0],
+                 [0, 1, 0, 0],
+                 [0 ,0, 0, 1],
+                 [0, 0, 1, 0]])
+
+# --- Connect To IBMQ ---
 def load_ibm_backend(token: str, instance: str, backend_name: str):
     QiskitRuntimeService.save_account(
         channel="ibm_quantum",
@@ -22,14 +35,14 @@ def load_ibm_backend(token: str, instance: str, backend_name: str):
     noise_model = NoiseModel.from_backend(backend)
     return backend, noise_model
 
-# --- 準備初始狀態電路 ---
+# --- Prepare Initial State ---
 def build_initial_states(qubit_count = 2):
     qreg = QuantumRegister(qubit_count, 'q')
     creg = ClassicalRegister(qubit_count, 'c')
 
     initial_states = {}
 
-    # 單 qubit 狀態 (針對 qubit 0)
+    # Prepare Sate of Qubit0
     q0_states = {
         'zero': QuantumCircuit(qreg, creg),
         'one': QuantumCircuit(qreg, creg),
@@ -43,7 +56,7 @@ def build_initial_states(qubit_count = 2):
     if qubit_count == 1:
         return q0_states
 
-    # 如果是兩個 qubit，建立 qubit 1 狀態
+    # Prepare State of Qubit1 if needed
     q1_states = {
         'zero': QuantumCircuit(qreg, creg),
         'one': QuantumCircuit(qreg, creg),
@@ -61,7 +74,7 @@ def build_initial_states(qubit_count = 2):
 
     return initial_states
 
-# --- 準備量測基底電路 ---
+# --- Prepare Measurement ---
 def build_measurement_pauli(qubit_count=2):
     Measurement = {}
     pauli_labels = ['I', 'X', 'Y', 'Z']
@@ -75,21 +88,19 @@ def build_measurement_pauli(qubit_count=2):
                 Measurement[key] = [Pauli('I'*0 + p2 + p1)]
     return Measurement
 
-# --- 執行模擬任務 ---
+# --- Run Simulation ---
 def run_measurements(circuits, measurements, backend, shots=1000):
     estimator = Estimator(mode=backend)
     estimator.options.default_shots = shots
     batched_inputs = []
-    # keys = []
     for m_key, paulis in measurements.items():
         for name, circ in circuits.items():
             CirTran = q.compiler.transpile(circ, backend=backend, optimization_level=0)
             batched_inputs.append((CirTran, paulis))
-            # keys.append(f"{name}_{m_key}")
     jobs = estimator.run(batched_inputs)
     return jobs
 
-# --- 收集結果 ---
+# --- Construct Gram Matrix ---
 def collect_results(jobs, qubit_count=2):
     # results = []
     # for name, job in jobs.items():
@@ -101,7 +112,7 @@ def collect_results(jobs, qubit_count=2):
     g = np.array(job).reshape(dim, dim)
     return g
 
-# --- 建立 A 矩陣 ---
+# --- Construct A Matrix ---
 def get_preparation_matrix(qubit_count=2):
     A_single = np.array([[1,  1, 1, 1],
                          [0,  0, 1, 0],
@@ -110,7 +121,7 @@ def get_preparation_matrix(qubit_count=2):
     A = A_single if qubit_count == 1 else np.kron(A_single, A_single)
     return A
 
-# --- 修正觀察值 ---
+# --- Calculate the coefficient of Noisy Observable ---
 def build_corrected_observables(g, A, qubit_count=2):
     B = np.matmul(g, inv(A))
     B_inv = inv(B)
@@ -129,13 +140,13 @@ def build_corrected_observables(g, A, qubit_count=2):
     else:
         for f, first in a.items():
             for s, second in a.items():
-                key = f'{f}{s}'
+                key = f'{s}{f}'
                 a_mix = np.kron(first, second)
                 q_mix = np.matmul(a_mix, B_inv)
                 qq[key] = q_mix
-    return qq
+    return B, qq
 
-# --- 建立理想觀測量 ---
+# --- Build the Ideal Observable ---
 def build_ideal_measurement(qq, qubit_count=2):
     IdealMeasurement = {}
     if qubit_count == 1:
@@ -156,3 +167,72 @@ def build_ideal_measurement(qq, qubit_count=2):
                 IdealMeasurement[f"meas{obs}"] = IdealObservable
     return IdealMeasurement
 
+# --- Prepare Circuit With Cnot gate ---
+def add_cnot_gate(Initial_state): 
+    CnotCircuit = {}
+    for InitName, Initial in Initial_state.items():
+        cir = Initial.copy()
+        cir.cx(0, 1)
+        CnotCircuit.update({f'{InitName}':cir})
+    return CnotCircuit
+
+# --- Build Cnot Gate Noisy ---
+def build_cnot_noisy_channel(A, B, g):
+    return np.matmul(np.matmul(inv(B), g), inv(A))
+
+# --- Quantum State Evolution ---
+def evolution(gate, state):
+        return np.matmul(np.matmul(gate, state), np.conj(gate).T) 
+
+# --- PTM of Cnot Gate ---
+def build_cnot_ptm():
+    IdealCnot = np.ones((16,16),  dtype=complex)
+    i = 0
+    for matrix1 in pauli_pair.values():
+        j = 0
+        for matrix2 in pauli_pair.values():
+            applycnot = evolution(Cnot, matrix1)
+            element = np.matmul(matrix2, applycnot)
+            IdealCnot[i][j] = np.round(np.trace(element)/4)
+            j+=1
+        i+=1 
+    return IdealCnot
+
+# Pauli Twirling ----------------------------------------------------------------------------------------------------------
+
+# --- Compare Pauli in front of and behind Cnot gate ---
+def pauli_transfer_matrix():
+    pauli_transfer = {}
+    for channel, matrix in pauli_pair.items():
+        new_matrix = evolution(Cnot, matrix)
+        for new_channel, comp_matrix in pauli_pair.items():
+            if np.array_equal(new_matrix, comp_matrix) or np.array_equal(new_matrix, -comp_matrix):
+                pauli_transfer.update({channel:new_channel})
+    return pauli_transfer
+
+# --- Generate Pauli Twirling Circuit ---
+def generate_pauli_circuits(index):
+    circuits = {"I": QuantumCircuit(2, 2),
+                "X": QuantumCircuit(2, 2),
+                "Y": QuantumCircuit(2, 2),
+                "Z": QuantumCircuit(2, 2)}
+    # X-measurement
+    circuits["X"].x(index)
+    # Y-measurement
+    circuits["Y"].y(index)
+    # Z-measurement
+    circuits["Z"].z(index)
+    return circuits  
+    
+# --- Combine Pauli ppair and Cnotgate Cirucit ---
+def generate_twirling_circuits(InitialState, PauliTwirling, transfer):
+    Twirling_circuit_set = {}
+    for firstPauli, secondPauli in transfer.items():
+        Twirling_circuit = {}
+        for InitName, Initial in InitialState.items():
+            AddPauli = q.circuit.QuantumCircuit.compose(Initial, PauliTwirling[firstPauli])
+            AddPauli.cx(0, 1)
+            AddPauliInverse = q.circuit.QuantumCircuit.compose(AddPauli, PauliTwirling[secondPauli])
+            Twirling_circuit.update({InitName:AddPauliInverse})
+        Twirling_circuit_set.update({firstPauli:Twirling_circuit})
+    return Twirling_circuit_set
