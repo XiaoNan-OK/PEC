@@ -41,13 +41,26 @@ def build_initial_states(qubit_count = 2):
     creg = ClassicalRegister(qubit_count, 'c')
 
     initial_states = {}
+    default_circuits = QuantumCircuit(qreg, creg)
+    
+    # Prepare State of Qubit1 if needed
+    q1_states = {
+        'zero': default_circuits.copy(),
+        'one': default_circuits.copy(),
+        'plus': default_circuits.copy(),
+        'right': default_circuits.copy()
+    }
+    q1_states['one'].x(1)
+    q1_states['plus'].h(1)
+    q1_states['right'].h(1); q1_states['right'].s(1)
 
     # Prepare Sate of Qubit0
+    default_circuits.reset(range(2))
     q0_states = {
-        'zero': QuantumCircuit(qreg, creg),
-        'one': QuantumCircuit(qreg, creg),
-        'plus': QuantumCircuit(qreg, creg),
-        'right': QuantumCircuit(qreg, creg)
+        'zero': default_circuits.copy(),
+        'one': default_circuits.copy(),
+        'plus': default_circuits.copy(),
+        'right': default_circuits.copy()
     }
     q0_states['one'].x(0)
     q0_states['plus'].h(0)
@@ -55,17 +68,6 @@ def build_initial_states(qubit_count = 2):
 
     if qubit_count == 1:
         return q0_states
-
-    # Prepare State of Qubit1 if needed
-    q1_states = {
-        'zero': QuantumCircuit(qreg, creg),
-        'one': QuantumCircuit(qreg, creg),
-        'plus': QuantumCircuit(qreg, creg),
-        'right': QuantumCircuit(qreg, creg)
-    }
-    q1_states['one'].x(1)
-    q1_states['plus'].h(1)
-    q1_states['right'].h(1); q1_states['right'].s(1)
 
     for q0k, qc0 in q0_states.items():
         for q1k, qc1 in q1_states.items():
@@ -75,7 +77,7 @@ def build_initial_states(qubit_count = 2):
     return initial_states
 
 # --- Prepare Measurement ---
-def build_measurement_pauli(qubit_count=2):
+def build_measurement_pauli(qubit_count=2, observable_number=2):
     Measurement = {}
     pauli_labels = ['I', 'X', 'Y', 'Z']
     if qubit_count == 1:
@@ -85,7 +87,7 @@ def build_measurement_pauli(qubit_count=2):
         for p1 in pauli_labels:
             for p2 in pauli_labels:
                 key = f"meas{p2}{p1}"
-                Measurement[key] = [Pauli('I'*0 + p2 + p1)]
+                Measurement[key] = [Pauli('I'*(observable_number-2) + p2 + p1)]
     return Measurement
 
 # --- Run Simulation ---
@@ -93,10 +95,23 @@ def run_measurements(circuits, measurements, backend, shots=1000):
     estimator = Estimator(mode=backend)
     estimator.options.default_shots = shots
     batched_inputs = []
-    for m_key, paulis in measurements.items():
-        for name, circ in circuits.items():
-            CirTran = q.compiler.transpile(circ, backend=backend, optimization_level=0)
-            batched_inputs.append((CirTran, paulis))
+
+    # Detect if 2D (Twirling-like) or 1D (basic circuit dict)
+    is_2D = isinstance(next(iter(circuits.values())), dict)
+
+    if is_2D:
+        # circuits is 2D
+        for pauli, circuit_set in circuits.items():
+            for MeasName, Measure in measurements.items():
+                for CirName, Cir in circuit_set.items():
+                    CirTran = q.compiler.transpile(Cir, backend=backend, optimization_level=0)
+                    batched_inputs.append((CirTran, Measure))
+    else:
+        for MeasName, Measure in measurements.items():
+            for CirName, Cir in circuits.items():
+                CirTran = q.compiler.transpile(Cir, backend=backend, optimization_level=0)
+                batched_inputs.append((CirTran, Measure))
+
     jobs = estimator.run(batched_inputs)
     return jobs
 
@@ -107,9 +122,21 @@ def collect_results(jobs, qubit_count=2):
     #     res = job.result()
         # results.append(res[0].data.evs)
     result = jobs.result()
-    job = [res.data.evs for res in result]
+    data = [res.data.evs for res in result]
     dim = 4 if qubit_count == 1 else 16
-    g = np.array(job).reshape(dim, dim)
+    g = np.array(data).reshape(dim, dim)
+    return g
+
+# --- Construct Gram Matrix ---
+def collect_twirling_results(jobs, qubit_count=2):
+    # results = []
+    # for name, job in jobs.items():
+    #     res = job.result()
+        # results.append(res[0].data.evs)
+    result = jobs.result()
+    data = [res.data.evs for res in result]
+    dim = 4 if qubit_count == 1 else 16
+    g = np.array(data).reshape(dim, dim, dim)
     return g
 
 # --- Construct A Matrix ---
@@ -147,23 +174,23 @@ def build_corrected_observables(g, A, qubit_count=2):
     return B, qq
 
 # --- Build the Ideal Observable ---
-def build_ideal_measurement(qq, qubit_count=2):
+def build_ideal_measurement(qq, qubit_count=2, observable_number=2):
     IdealMeasurement = {}
     if qubit_count == 1:
         Observable = ['I', 'X', 'Y', 'Z']
         for obs in Observable:
-            IdealObservable = SparsePauliOp(['I'], coeffs=[qq[obs][0][0]])
+            IdealObservable = SparsePauliOp(['I' * (observable_number-1) + 'I'], coeffs=[qq[obs][0][0]])
             for i in range(1, len(Observable)):
-                # IdealObservable += SparsePauliOp([('I' * (backendqubitNum-2) + Observable[i])], coeffs=[qq[obs][0][i]])
-                IdealObservable += SparsePauliOp([(Observable[i])], coeffs=[qq[obs][0][i]])
+                IdealObservable += SparsePauliOp(['I' * (observable_number-1) + Observable[i]], coeffs=[qq[obs][0][i]])
+                # IdealObservable += SparsePauliOp([(Observable[i])], coeffs=[qq[obs][0][i]])
                 IdealMeasurement[f"meas{obs}"] = IdealObservable
     else:
         Observable = ['II', 'XI', 'YI', 'ZI', 'IX', 'XX', 'YX', 'ZX', 'IY', 'XY', 'YY', 'ZY', 'IZ', 'XZ', 'YZ', 'ZZ']       
         for obs in Observable:
-            IdealObservable = SparsePauliOp(['II'], coeffs=[qq[obs][0][0]])
+            IdealObservable = SparsePauliOp(['I' * (observable_number-2) + 'II'], coeffs=[qq[obs][0][0]])
             for i in range(1, len(Observable)):
-                # IdealObservable += SparsePauliOp([('I' * (backendqubitNum-2) + Observable[i])], coeffs=[qq[obs][0][i]])
-                IdealObservable += SparsePauliOp([(Observable[i])], coeffs=[qq[obs][0][i]])
+                IdealObservable += SparsePauliOp([('I' * (observable_number-2) + Observable[i])], coeffs=[qq[obs][0][i]])
+                # IdealObservable += SparsePauliOp([(Observable[i])], coeffs=[qq[obs][0][i]])
                 IdealMeasurement[f"meas{obs}"] = IdealObservable
     return IdealMeasurement
 
