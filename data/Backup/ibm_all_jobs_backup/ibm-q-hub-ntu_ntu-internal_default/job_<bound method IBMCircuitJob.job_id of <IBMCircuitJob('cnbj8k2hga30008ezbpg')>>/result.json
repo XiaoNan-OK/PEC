@@ -1,0 +1,194 @@
+{
+  "backend_name": "ibm_algiers",
+  "backend_version": "0.0.0",
+  "date": "2023-11-17T22:13:48.226050+08:00",
+  "header": {
+    "backend_name": "ibm_algiers",
+    "backend_version": "1.6.16"
+  },
+  "qobj_id": "Unknown",
+  "job_id": "circuit-runner_clbn940hteu5rj6jkd60_5558_0",
+  "status": "done",
+  "success": true,
+  "results": [
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 36574,
+          "0x0": 63426
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            8
+          ]
+        ],
+        "global_phase": 3.1415926535897922,
+        "memory_slots": 8,
+        "metadata": {},
+        "n_qubits": 27,
+        "name": "circuit-150",
+        "qreg_sizes": [
+          [
+            "q",
+            27
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ],
+          [
+            "q",
+            21
+          ],
+          [
+            "q",
+            22
+          ],
+          [
+            "q",
+            23
+          ],
+          [
+            "q",
+            24
+          ],
+          [
+            "q",
+            25
+          ],
+          [
+            "q",
+            26
+          ]
+        ]
+      },
+      "status": "done",
+      "meas_return": "avg"
+    }
+  ],
+  "execution_id": "",
+  "time_taken": 27.337889282000003,
+  "error": null
+}

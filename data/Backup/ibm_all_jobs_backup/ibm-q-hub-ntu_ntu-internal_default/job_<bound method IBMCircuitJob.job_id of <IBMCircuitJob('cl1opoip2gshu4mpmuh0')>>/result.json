@@ -1,0 +1,9487 @@
+{
+  "backend_name": "qasm_simulator",
+  "backend_version": "0.12.2",
+  "date": "2023-11-02T19:50:06.813330+08:00",
+  "header": {
+    "backend_name": "ibmq_qasm_simulator",
+    "backend_version": "0.1.547"
+  },
+  "qobj_id": "ec043d48-42a2-4622-8371-92345888bc98",
+  "job_id": "40e66f70-1efb-4a52-97ff-d5d5ce3e6ddd",
+  "status": "COMPLETED",
+  "success": true,
+  "results": [
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 100000
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-90",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311889626,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.158423925,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.000901754,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.366837249
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 278,
+          "0x0": 99722
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-91",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311891739,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.143511891,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.000907828,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.446920753
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 98873,
+          "0x1": 1127
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-92",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311893852,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.138104794,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.000889822,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.448547987
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 2349,
+          "0x0": 97651
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-93",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311895965,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.133315935,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001369963,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.461622868
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 1096,
+          "0x0": 98904
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-93",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311898078,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.133025848,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001394733,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.404850394
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 267,
+          "0x0": 99733
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-93",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311900191,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.132397286,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001316813,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.512234026
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 100000
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-93",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311902304,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.150401364,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001320699,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.479059638
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 100000
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-98",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311904417,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.129992163,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.000844029,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.394120561
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 253,
+          "0x0": 99747
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-99",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311906530,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.128821095,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.000848204,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.362978805
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 1054,
+          "0x0": 98946
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-100",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311908643,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.13421952,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.000911125,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.44818363
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 2318,
+          "0x0": 97682
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-101",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311910756,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.140888274,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001379259,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.398604984
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 1204,
+          "0x0": 98796
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-101",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311912869,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.116675977,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001363491,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.392947865
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 807,
+          "0x0": 99193
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-101",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311914982,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.136173031,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001320317,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.480763047
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 1176,
+          "0x0": 98824
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-101",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311917095,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.14320438,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001349063,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.479419438
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 100000
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-106",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311919208,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.142223878,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.000917931,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.462890484
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 296,
+          "0x0": 99704
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-107",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311921321,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.131438655,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.000874709,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.395948335
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 1002,
+          "0x0": 98998
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-108",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311923434,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.137229236,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.000854383,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.384689562
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 2054,
+          "0x0": 97946
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-109",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311925547,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.131523785,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001312955,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.381739313
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 1322,
+          "0x0": 98678
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-109",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311927660,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.135674335,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001359275,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.403299125
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 1722,
+          "0x0": 98278
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-109",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311929773,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.139412364,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001363143,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.476479332
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 2718,
+          "0x0": 97282
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-109",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311931886,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.135739059,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001359517,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.39691479
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 100000
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-114",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311933999,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.137819408,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.000890683,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.322424788
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 226,
+          "0x0": 99774
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-115",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311936112,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.130016646,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.000840776,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.363340247
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 793,
+          "0x0": 99207
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-116",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311938225,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.12985166,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001404097,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.414498026
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 1330,
+          "0x0": 98670
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-117",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311940338,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.143086101,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001443846,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.461147237
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 1230,
+          "0x0": 98770
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-117",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311942451,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.150102987,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.0014062,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.425810405
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 1298,
+          "0x0": 98702
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-117",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311944564,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.14999899,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.00151456,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.509543056
+    },
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 977,
+          "0x0": 99023
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-117",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 311946677,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.141959877,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 21,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "fusion": {
+          "time_taken": 0.001448921,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.478191234
+    }
+  ],
+  "metadata": {
+    "time_taken": 11.983953823,
+    "time_taken_execute": 11.955873043,
+    "mpi_rank": 0,
+    "parallel_experiments": 1,
+    "omp_enabled": true,
+    "max_gpu_memory_mb": 0,
+    "num_processes_per_experiments": 1,
+    "num_mpi_processes": 1,
+    "time_taken_load_qobj": 0.028048139,
+    "max_memory_mb": 64098
+  },
+  "time_taken": 11.990511417388916
+}

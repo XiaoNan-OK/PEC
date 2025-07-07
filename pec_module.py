@@ -4,7 +4,6 @@ from numpy.linalg import inv
 from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister, transpile
 from qiskit_aer import AerSimulator
 from qiskit_aer.noise import NoiseModel
-from qiskit.providers.backend import BackendV1
 from qiskit.quantum_info import Pauli, SparsePauliOp
 from qiskit_ibm_runtime import QiskitRuntimeService, EstimatorV2 as Estimator
 
@@ -24,7 +23,7 @@ Cnot = np.array([[1, 0, 0, 0],
 # --- Connect To IBMQ ---
 def load_ibm_backend(token: str, instance: str, backend_name: str):
     QiskitRuntimeService.save_account(
-        channel="ibm_quantum",
+        channel="ibm_quantum_platform",
         token=token,
         instance=instance,
         set_as_default=True,
@@ -33,7 +32,7 @@ def load_ibm_backend(token: str, instance: str, backend_name: str):
     service = QiskitRuntimeService()
     backend = service.backend(backend_name)
     noise_model = NoiseModel.from_backend(backend)
-    return backend, noise_model
+    return backend, noise_model, service
 
 # --- Prepare Initial State ---
 def build_initial_states(qubit_count = 2):

@@ -1,0 +1,368 @@
+{
+  "backend_name": "qasm_simulator",
+  "backend_version": "0.13.3",
+  "date": "2024-04-19T10:24:22.496420+08:00",
+  "header": {
+    "backend_name": "ibmq_qasm_simulator",
+    "backend_version": "0.1.547"
+  },
+  "qobj_id": "bc5a10a3-7e77-414a-ba1a-462f7565cd51",
+  "job_id": "Unknown",
+  "status": "COMPLETED",
+  "success": true,
+  "results": [
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 49928,
+          "0x1": 50072
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            8
+          ],
+          [
+            "c",
+            9
+          ],
+          [
+            "c",
+            10
+          ],
+          [
+            "c",
+            11
+          ],
+          [
+            "c",
+            12
+          ],
+          [
+            "c",
+            13
+          ],
+          [
+            "c",
+            14
+          ],
+          [
+            "c",
+            15
+          ],
+          [
+            "c",
+            16
+          ],
+          [
+            "c",
+            17
+          ],
+          [
+            "c",
+            18
+          ],
+          [
+            "c",
+            19
+          ],
+          [
+            "c",
+            20
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            21
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 21,
+        "metadata": {},
+        "n_qubits": 21,
+        "name": "circuit-228",
+        "qreg_sizes": [
+          [
+            "q",
+            21
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ],
+          [
+            "q",
+            8
+          ],
+          [
+            "q",
+            9
+          ],
+          [
+            "q",
+            10
+          ],
+          [
+            "q",
+            11
+          ],
+          [
+            "q",
+            12
+          ],
+          [
+            "q",
+            13
+          ],
+          [
+            "q",
+            14
+          ],
+          [
+            "q",
+            15
+          ],
+          [
+            "q",
+            16
+          ],
+          [
+            "q",
+            17
+          ],
+          [
+            "q",
+            18
+          ],
+          [
+            "q",
+            19
+          ],
+          [
+            "q",
+            20
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 2522542723,
+      "metadata": {
+        "time_taken": 0.719098661,
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "method": "statevector",
+        "remapped_qubits": false,
+        "num_clbits": 21,
+        "input_qubit_map": [
+          [
+            20,
+            20
+          ],
+          [
+            19,
+            19
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ]
+        ],
+        "device": "CPU",
+        "parallel_shots": 1,
+        "num_qubits": 21,
+        "measure_sampling": true,
+        "num_bind_params": 1,
+        "required_memory_mb": 32,
+        "batched_shots_optimization": false,
+        "noise": "ideal",
+        "sample_measure_time": 0.19736521,
+        "max_memory_mb": 64097,
+        "runtime_parameter_bind": false,
+        "parallel_state_update": 16,
+        "fusion": {
+          "time_taken": 0.001171357,
+          "applied": true,
+          "threshold": 14,
+          "max_fused_qubits": 5,
+          "method": "unitary",
+          "parallelization": 1,
+          "enabled": true,
+          "cost_factor": 1.8
+        }
+      },
+      "time_taken": 0.719098661
+    }
+  ],
+  "metadata": {
+    "time_taken": 0.720656614,
+    "parallel_experiments": 1,
+    "max_gpu_memory_mb": 0,
+    "omp_enabled": true,
+    "time_taken_execute": 0.719243918,
+    "max_memory_mb": 64097,
+    "time_taken_load_qobj": 0.00137248
+  },
+  "time_taken": 0.7223565578460693
+}

@@ -1,0 +1,9436 @@
+{
+  "backend_name": "qasm_simulator",
+  "backend_version": "0.12.0",
+  "date": "2023-05-08T11:02:38.989769+08:00",
+  "header": {
+    "backend_name": "ibmq_qasm_simulator",
+    "backend_version": "0.1.547"
+  },
+  "qobj_id": "b02bbff4-f249-4741-ab45-b8075ec55411",
+  "job_id": "d8120824-d05d-47f3-ade1-a6d4c142c43f",
+  "status": "COMPLETED",
+  "success": true,
+  "results": [
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4123,
+          "0x2": 4069
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-676",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098259345,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.003163927,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.014011385
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 3129,
+          "0x2": 5063
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-677",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098261458,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.00177684,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.012011236
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 5516,
+          "0x0": 2676
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-678",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098263571,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001812873,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011165638
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 5345,
+          "0x0": 2847
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-679",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098265684,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001829229,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011680902
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4747,
+          "0x0": 3445
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-680",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098267797,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001846598,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.013926983
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4046,
+          "0x0": 4146
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-681",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098269910,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001857633,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011482215
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 3530,
+          "0x0": 4662
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-682",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098272023,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001635642,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01059227
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4388,
+          "0x2": 3804
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-683",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098274136,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001644544,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011266145
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4530,
+          "0x0": 3662
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-684",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098276249,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.00179404,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011259187
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 2613,
+          "0x2": 5579
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-685",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098278362,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001974602,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011692242
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1652,
+          "0x2": 6540
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-686",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098280475,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001785508,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010926417
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1394,
+          "0x2": 6798
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-687",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098282588,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001696407,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011969219
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 2089,
+          "0x2": 6103
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-688",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098284701,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001923314,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.013515884
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 3329,
+          "0x2": 4863
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-689",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098286814,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001754171,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01107114
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 3709,
+          "0x0": 4483
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-690",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098288927,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001863508,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.012434859
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4948,
+          "0x2": 3244
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-691",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098291040,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001867167,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011996134
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 3225,
+          "0x0": 4967
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-692",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098293153,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001811764,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011519472
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 2561,
+          "0x0": 5631
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-693",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098295266,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001759733,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011078281
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 6560,
+          "0x2": 1632
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-694",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098297379,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.002524463,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01154639
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 1165,
+          "0x0": 7027
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-695",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098299492,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001634568,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010382238
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 1302,
+          "0x0": 6890
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-696",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098301605,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001643049,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010750167
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4075,
+          "0x0": 4117
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-697",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098303718,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001627007,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010297135
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 5457,
+          "0x0": 2735
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-698",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098305831,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001632732,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010115215
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 6683,
+          "0x0": 1509
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-699",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098307944,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001685495,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011876662
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1523,
+          "0x2": 6669
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-700",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098310057,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001629609,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011210459
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 2641,
+          "0x2": 5551
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-701",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098312170,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.002761369,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01137892
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 3827,
+          "0x2": 4365
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-702",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098314283,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001520478,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.011585586
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4318,
+          "0x2": 3874
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-703",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098316396,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001526167,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010526859
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4206,
+          "0x2": 3986
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-704",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098318509,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001755501,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010541107
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4089,
+          "0x0": 4103
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-705",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098320622,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001591627,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010635178
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4281,
+          "0x2": 3911
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-706",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098322735,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001641417,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.012988952
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 3833,
+          "0x0": 4359
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-707",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098324848,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001790626,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01122565
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4356,
+          "0x2": 3836
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-708",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098326961,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001655104,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010308425
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4148,
+          "0x2": 4044
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-709",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098329074,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001581375,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010456567
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4111,
+          "0x2": 4081
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-710",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098331187,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001669452,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010476413
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 3815,
+          "0x0": 4377
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-711",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098333300,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001666598,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010543638
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 3770,
+          "0x0": 4422
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-712",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098335413,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001639688,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010501144
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4349,
+          "0x2": 3843
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-713",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098337526,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001653197,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010508713
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4271,
+          "0x2": 3921
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-714",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098339639,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001680998,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010496321
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4604,
+          "0x2": 3588
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-715",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098341752,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.00155559,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010271895
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 3812,
+          "0x0": 4380
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-716",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098343865,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001570382,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010446533
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4426,
+          "0x2": 3766
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-717",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098345978,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001454723,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01000855
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4066,
+          "0x2": 4126
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-718",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098348091,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001623435,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010257816
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 2397,
+          "0x2": 5795
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-719",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098350204,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001514307,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010266444
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1076,
+          "0x2": 7116
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-720",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098352317,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001959358,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.012215395
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1068,
+          "0x2": 7124
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-721",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098354430,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001607641,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010446461
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1952,
+          "0x2": 6240
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-722",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098356543,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001614321,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010280938
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4839,
+          "0x0": 3353
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-723",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098358656,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001614852,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01036076
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4179,
+          "0x0": 4013
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-724",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098360769,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001680266,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01061101
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4276,
+          "0x0": 3916
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-725",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098362882,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001669734,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01023403
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4010,
+          "0x2": 4182
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-726",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098364995,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001920619,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01070746
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4041,
+          "0x2": 4151
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-727",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098367108,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001649321,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010472824
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4090,
+          "0x2": 4102
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-728",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098369221,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001627577,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010518028
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4092,
+          "0x2": 4100
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-729",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098371334,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001619567,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010176019
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4203,
+          "0x0": 3989
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-730",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098373447,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001574062,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010308596
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4053,
+          "0x0": 4139
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-731",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098375560,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001557486,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010162273
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4432,
+          "0x2": 3760
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-732",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098377673,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001461719,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010232461
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 3621,
+          "0x2": 4571
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-733",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098379786,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001573967,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010172608
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 5330,
+          "0x0": 2862
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-734",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098381899,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001655216,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01040584
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 3726,
+          "0x2": 4466
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-735",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098384012,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001701926,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.009877459
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 2756,
+          "0x0": 5436
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-736",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098386125,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001594801,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010294629
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 2552,
+          "0x0": 5640
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-737",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098388238,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001654894,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010027891
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 5666,
+          "0x2": 2526
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-738",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098390351,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001698454,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010595103
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4122,
+          "0x0": 4070
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-739",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098392464,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.00162231,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010276241
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 2073,
+          "0x2": 6119
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-740",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098394577,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001649299,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010279434
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 6136,
+          "0x0": 2056
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-741",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098396690,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.00167732,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010014674
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 5041,
+          "0x2": 3151
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-742",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098398803,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001604801,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010419346
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 1698,
+          "0x0": 6494
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-743",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098400916,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001634811,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.009670185
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 5933,
+          "0x2": 2259
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-744",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098403029,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001617646,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010228156
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4060,
+          "0x2": 4132
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-745",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098405142,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.002417387,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01085755
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4593,
+          "0x0": 3599
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-746",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098407255,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001666613,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010218029
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 3705,
+          "0x2": 4487
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-747",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098409368,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001673675,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010549656
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4577,
+          "0x2": 3615
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-748",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098411481,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001665978,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010518908
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 3485,
+          "0x0": 4707
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-749",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098413594,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001661948,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010184092
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 4242,
+          "0x2": 3950
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-750",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098415707,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001708923,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01064337
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4066,
+          "0x0": 4126
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-751",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098417820,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001633288,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010378579
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4023,
+          "0x0": 4169
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-752",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098419933,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001628936,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010510179
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4076,
+          "0x0": 4116
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-753",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098422046,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001483715,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010710327
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4116,
+          "0x0": 4076
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-754",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098424159,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001780862,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.01076589
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 4502,
+          "0x0": 3690
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-755",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098426272,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001645535,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010703164
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 3895,
+          "0x2": 4297
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-756",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098428385,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001618369,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010273936
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 3235,
+          "0x0": 4957
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-757",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098430498,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001424878,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010218697
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x2": 3933,
+          "0x0": 4259
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-758",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098432611,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001585435,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010481916
+    },
+    {
+      "shots": 8192,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 2699,
+          "0x2": 5493
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            4
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 4,
+        "metadata": {},
+        "n_qubits": 4,
+        "name": "circuit-759",
+        "qreg_sizes": [
+          [
+            "q",
+            4
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ]
+        ]
+      },
+      "status": "DONE",
+      "seed_simulator": 3098434724,
+      "metadata": {
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.001656287,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 4,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "statevector",
+        "active_input_qubits": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "num_clbits": 4,
+        "input_qubit_map": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "applied": false,
+          "max_fused_qubits": 5,
+          "enabled": true,
+          "threshold": 14
+        }
+      },
+      "time_taken": 0.010516031
+    }
+  ],
+  "metadata": {
+    "time_taken": 0.933494986,
+    "time_taken_execute": 0.912008023,
+    "mpi_rank": 0,
+    "parallel_experiments": 1,
+    "omp_enabled": true,
+    "max_gpu_memory_mb": 0,
+    "num_processes_per_experiments": 1,
+    "num_mpi_processes": 1,
+    "time_taken_load_qobj": 0.02144729,
+    "max_memory_mb": 64216
+  },
+  "time_taken": 0.9373834133148193
+}

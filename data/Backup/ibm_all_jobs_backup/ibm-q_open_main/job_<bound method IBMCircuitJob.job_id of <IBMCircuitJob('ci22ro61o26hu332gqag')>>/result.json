@@ -1,0 +1,2748 @@
+{
+  "backend_name": "ibmq_lima",
+  "backend_version": "1.0.48",
+  "date": "2023-06-10T16:34:27+08:00",
+  "header": {
+    "backend_name": "ibmq_lima",
+    "backend_version": "1.0.48",
+    "_ibm_tracing_": {
+      "uber-trace-id": "cdca7141a0b00131acaced5a007068e0:cea6d4b70f6031f2:8bceb4ac84ec2faf:1"
+    }
+  },
+  "qobj_id": "ee3bc42d-f6a2-468f-a7f0-6b7a178091c6",
+  "job_id": "circuit-runner_ci234p6fhqu7j3oe1ue0_fa95_0",
+  "status": "Successful completion",
+  "success": true,
+  "results": [
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 607,
+          "0x10": 529,
+          "0x18": 399,
+          "0x20": 515,
+          "0x28": 467,
+          "0x30": 507,
+          "0x38": 511,
+          "0x8": 465
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 3.337942194439155,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            0,
+            0,
+            0
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(0, 0, 0)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1107,
+          "0x10": 860,
+          "0x18": 919,
+          "0x20": 79,
+          "0x28": 37,
+          "0x30": 68,
+          "0x38": 46,
+          "0x8": 884
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.123340357836604,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            0,
+            0,
+            1
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(0, 0, 1)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 629,
+          "0x10": 537,
+          "0x18": 449,
+          "0x20": 596,
+          "0x28": 570,
+          "0x30": 354,
+          "0x38": 310,
+          "0x8": 555
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 3.3379421944391545,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            0,
+            0,
+            2
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(0, 0, 2)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1031,
+          "0x10": 49,
+          "0x18": 37,
+          "0x20": 836,
+          "0x28": 980,
+          "0x30": 23,
+          "0x38": 42,
+          "0x8": 1002
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.123340357836604,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            0,
+            1,
+            0
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(0, 1, 0)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1877,
+          "0x10": 83,
+          "0x18": 225,
+          "0x20": 128,
+          "0x28": 53,
+          "0x30": 46,
+          "0x38": 28,
+          "0x8": 1560
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.908738521234052,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            0,
+            1,
+            1
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(0, 1, 1)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 896,
+          "0x10": 98,
+          "0x18": 131,
+          "0x20": 1042,
+          "0x28": 806,
+          "0x30": 32,
+          "0x38": 92,
+          "0x8": 903
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.123340357836603,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            0,
+            1,
+            2
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(0, 1, 2)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 486,
+          "0x10": 577,
+          "0x18": 598,
+          "0x20": 510,
+          "0x28": 361,
+          "0x30": 552,
+          "0x38": 609,
+          "0x8": 307
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 3.3379421944391554,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            0,
+            2,
+            0
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(0, 2, 0)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1015,
+          "0x10": 967,
+          "0x18": 955,
+          "0x20": 55,
+          "0x28": 61,
+          "0x30": 10,
+          "0x38": 5,
+          "0x8": 932
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.123340357836604,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            0,
+            2,
+            1
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(0, 2, 1)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 426,
+          "0x10": 568,
+          "0x18": 659,
+          "0x20": 541,
+          "0x28": 301,
+          "0x30": 604,
+          "0x38": 547,
+          "0x8": 354
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 3.3379421944391563,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            0,
+            2,
+            2
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(0, 2, 2)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1215,
+          "0x10": 765,
+          "0x18": 78,
+          "0x20": 916,
+          "0x28": 69,
+          "0x30": 794,
+          "0x38": 89,
+          "0x8": 74
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.123340357836604,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            1,
+            0,
+            0
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(1, 0, 0)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1946,
+          "0x10": 1591,
+          "0x18": 145,
+          "0x20": 85,
+          "0x28": 18,
+          "0x30": 73,
+          "0x38": 9,
+          "0x8": 133
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.908738521234052,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            1,
+            0,
+            1
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(1, 0, 1)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1166,
+          "0x10": 852,
+          "0x18": 60,
+          "0x20": 1040,
+          "0x28": 74,
+          "0x30": 701,
+          "0x38": 46,
+          "0x8": 61
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.123340357836603,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            1,
+            0,
+            2
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(1, 0, 2)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1681,
+          "0x10": 162,
+          "0x18": 58,
+          "0x20": 1704,
+          "0x28": 132,
+          "0x30": 128,
+          "0x38": 50,
+          "0x8": 85
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.908738521234052,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            1,
+            1,
+            0
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(1, 1, 0)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 3287,
+          "0x10": 198,
+          "0x18": 83,
+          "0x20": 107,
+          "0x28": 49,
+          "0x30": 59,
+          "0x38": 19,
+          "0x8": 198
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 5.6941366846315,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            1,
+            1,
+            1
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(1, 1, 1)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1688,
+          "0x10": 58,
+          "0x18": 14,
+          "0x20": 1904,
+          "0x28": 113,
+          "0x30": 58,
+          "0x38": 13,
+          "0x8": 152
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.908738521234051,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            1,
+            1,
+            2
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(1, 1, 2)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1156,
+          "0x10": 898,
+          "0x18": 63,
+          "0x20": 882,
+          "0x28": 78,
+          "0x30": 777,
+          "0x38": 68,
+          "0x8": 78
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.123340357836604,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            1,
+            2,
+            0
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(1, 2, 0)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1337,
+          "0x10": 2168,
+          "0x18": 179,
+          "0x20": 158,
+          "0x28": 51,
+          "0x30": 17,
+          "0x38": 19,
+          "0x8": 71
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.908738521234052,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            1,
+            2,
+            1
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(1, 2, 1)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1030,
+          "0x10": 902,
+          "0x18": 76,
+          "0x20": 885,
+          "0x28": 59,
+          "0x30": 914,
+          "0x38": 67,
+          "0x8": 67
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.123340357836605,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            1,
+            2,
+            2
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(1, 2, 2)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 620,
+          "0x10": 378,
+          "0x18": 437,
+          "0x20": 552,
+          "0x28": 406,
+          "0x30": 600,
+          "0x38": 482,
+          "0x8": 525
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 3.3379421944391554,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            2,
+            0,
+            0
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(2, 0, 0)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 926,
+          "0x10": 676,
+          "0x18": 1007,
+          "0x20": 63,
+          "0x28": 28,
+          "0x30": 54,
+          "0x38": 26,
+          "0x8": 1220
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.123340357836603,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            2,
+            0,
+            1
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(2, 0, 1)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 484,
+          "0x10": 492,
+          "0x18": 504,
+          "0x20": 569,
+          "0x28": 625,
+          "0x30": 316,
+          "0x38": 381,
+          "0x8": 629
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 3.3379421944391536,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            2,
+            0,
+            2
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(2, 0, 2)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 803,
+          "0x10": 64,
+          "0x18": 46,
+          "0x20": 910,
+          "0x28": 1034,
+          "0x30": 52,
+          "0x38": 64,
+          "0x8": 1027
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.123340357836603,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            2,
+            1,
+            0
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(2, 1, 0)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 1645,
+          "0x10": 79,
+          "0x18": 107,
+          "0x20": 49,
+          "0x28": 36,
+          "0x30": 35,
+          "0x38": 14,
+          "0x8": 2035
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.908738521234052,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            2,
+            1,
+            1
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(2, 1, 1)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 849,
+          "0x10": 139,
+          "0x18": 90,
+          "0x20": 1029,
+          "0x28": 882,
+          "0x30": 83,
+          "0x38": 57,
+          "0x8": 871
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.123340357836602,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            2,
+            1,
+            2
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(2, 1, 2)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 494,
+          "0x10": 387,
+          "0x18": 551,
+          "0x20": 432,
+          "0x28": 546,
+          "0x30": 404,
+          "0x38": 492,
+          "0x8": 694
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 3.3379421944391563,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            2,
+            2,
+            0
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(2, 2, 0)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 852,
+          "0x10": 754,
+          "0x18": 1064,
+          "0x20": 95,
+          "0x28": 43,
+          "0x30": 27,
+          "0x38": 14,
+          "0x8": 1151
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 4.123340357836604,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            2,
+            2,
+            1
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(2, 2, 1)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    },
+    {
+      "shots": 4000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x0": 472,
+          "0x10": 381,
+          "0x18": 515,
+          "0x20": 470,
+          "0x28": 691,
+          "0x30": 426,
+          "0x38": 504,
+          "0x8": 541
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c_tomo",
+            0
+          ],
+          [
+            "c_tomo",
+            1
+          ],
+          [
+            "c_tomo",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ],
+          [
+            "c_tomo",
+            3
+          ]
+        ],
+        "global_phase": 3.3379421944391563,
+        "memory_slots": 6,
+        "metadata": {
+          "clbits": [
+            3,
+            4,
+            5
+          ],
+          "cond_clbits": null,
+          "m_idx": [
+            2,
+            2,
+            2
+          ]
+        },
+        "n_qubits": 5,
+        "name": "StateTomography_(2, 2, 2)",
+        "qreg_sizes": [
+          [
+            "q",
+            5
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ]
+        ]
+      },
+      "status": "done"
+    }
+  ],
+  "execution_id": "88cc8bb4-0769-11ee-864c-b02628f7f59e",
+  "time_taken": 32.571337131,
+  "error": null
+}

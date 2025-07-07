@@ -1,0 +1,128 @@
+{
+  "backend_name": "aer_simulator_matrix_product_state",
+  "backend_version": "0.12.2",
+  "date": "2023-12-10T12:48:08.987579+08:00",
+  "header": {
+    "backend_name": "simulator_mps",
+    "backend_version": "0.1.547"
+  },
+  "qobj_id": "bdd52322-39e4-469f-a644-f7201f17e4ca",
+  "job_id": "ef16a467-50e1-4dd5-b1fb-e070e186ba71",
+  "status": "COMPLETED",
+  "success": true,
+  "results": [
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x1": 50091,
+          "0x0": 49909
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            3
+          ]
+        ],
+        "global_phase": 0,
+        "memory_slots": 3,
+        "metadata": {},
+        "n_qubits": 3,
+        "name": "circuit-145",
+        "qreg_sizes": [
+          [
+            "q",
+            3
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 2600122925,
+      "metadata": {
+        "matrix_product_state_sample_measure_algorithm": 0,
+        "matrix_product_state_truncation_threshold": 1e-16,
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.061432077,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 3,
+        "parallel_shots": 1,
+        "remapped_qubits": false,
+        "method": "matrix_product_state",
+        "active_input_qubits": [
+          0,
+          1,
+          2
+        ],
+        "matrix_product_state_max_bond_dimension": 18446744073709551615,
+        "num_clbits": 3,
+        "input_qubit_map": [
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fusion": {
+          "enabled": false
+        }
+      },
+      "time_taken": 0.171018716
+    }
+  ],
+  "metadata": {
+    "time_taken": 0.171655081,
+    "time_taken_execute": 0.171057097,
+    "mpi_rank": 0,
+    "parallel_experiments": 1,
+    "omp_enabled": true,
+    "max_gpu_memory_mb": 0,
+    "num_processes_per_experiments": 1,
+    "num_mpi_processes": 1,
+    "time_taken_load_qobj": 0.000530564,
+    "max_memory_mb": 64097
+  },
+  "time_taken": 0.17214727401733398
+}

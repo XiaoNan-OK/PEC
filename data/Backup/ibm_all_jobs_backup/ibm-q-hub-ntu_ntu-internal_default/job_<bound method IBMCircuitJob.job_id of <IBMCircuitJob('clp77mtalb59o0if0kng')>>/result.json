@@ -1,0 +1,168 @@
+{
+  "backend_name": "aer_simulator_matrix_product_state",
+  "backend_version": "0.12.2",
+  "date": "2023-12-08T09:39:40.514256+08:00",
+  "header": {
+    "backend_name": "simulator_mps",
+    "backend_version": "0.1.547"
+  },
+  "qobj_id": "a9f4a92a-9738-442c-9be9-74ca463ec5ac",
+  "job_id": "146865ba-d0c4-42e9-be17-624ed7ee4810",
+  "status": "COMPLETED",
+  "success": true,
+  "results": [
+    {
+      "shots": 100000,
+      "success": true,
+      "data": {
+        "counts": {
+          "0x20": 14497,
+          "0x0": 85503
+        }
+      },
+      "meas_level": 2,
+      "header": {
+        "clbit_labels": [
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "c",
+            2
+          ],
+          [
+            "c",
+            3
+          ],
+          [
+            "c",
+            4
+          ],
+          [
+            "c",
+            5
+          ],
+          [
+            "c",
+            6
+          ],
+          [
+            "c",
+            7
+          ]
+        ],
+        "creg_sizes": [
+          [
+            "c",
+            8
+          ]
+        ],
+        "global_phase": 6.081419660595436,
+        "memory_slots": 8,
+        "metadata": {},
+        "n_qubits": 8,
+        "name": "circuit-128",
+        "qreg_sizes": [
+          [
+            "q",
+            8
+          ]
+        ],
+        "qubit_labels": [
+          [
+            "q",
+            0
+          ],
+          [
+            "q",
+            1
+          ],
+          [
+            "q",
+            2
+          ],
+          [
+            "q",
+            3
+          ],
+          [
+            "q",
+            4
+          ],
+          [
+            "q",
+            5
+          ],
+          [
+            "q",
+            6
+          ],
+          [
+            "q",
+            7
+          ]
+        ]
+      },
+      "status": "DONE",
+      "circ_id": 0,
+      "seed_simulator": 3464897761,
+      "metadata": {
+        "matrix_product_state_sample_measure_algorithm": 0,
+        "matrix_product_state_truncation_threshold": 1e-16,
+        "parallel_state_update": 16,
+        "sample_measure_time": 0.900306897,
+        "noise": "ideal",
+        "batched_shots_optimization": false,
+        "measure_sampling": true,
+        "device": "CPU",
+        "num_qubits": 3,
+        "parallel_shots": 1,
+        "remapped_qubits": true,
+        "method": "matrix_product_state",
+        "active_input_qubits": [
+          5,
+          6,
+          7
+        ],
+        "matrix_product_state_max_bond_dimension": 18446744073709551615,
+        "num_clbits": 8,
+        "input_qubit_map": [
+          [
+            7,
+            2
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6,
+            1
+          ]
+        ],
+        "fusion": {
+          "enabled": false
+        }
+      },
+      "time_taken": 1.010150967
+    }
+  ],
+  "metadata": {
+    "time_taken": 1.010694612,
+    "time_taken_execute": 1.010182064,
+    "mpi_rank": 0,
+    "parallel_experiments": 1,
+    "omp_enabled": true,
+    "max_gpu_memory_mb": 0,
+    "num_processes_per_experiments": 1,
+    "num_mpi_processes": 1,
+    "time_taken_load_qobj": 0.00046801,
+    "max_memory_mb": 64097
+  },
+  "time_taken": 1.0117063522338867
+}
