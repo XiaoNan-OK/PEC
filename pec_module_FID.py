@@ -6,8 +6,6 @@ from qiskit_aer import AerSimulator
 from qiskit_aer.noise import NoiseModel
 from qiskit.quantum_info import Pauli, SparsePauliOp
 from qiskit_ibm_runtime import QiskitRuntimeService, EstimatorV2 as Estimator
-from typing import Optional, Tuple
-from qiskit.primitives import BackendEstimator
 
 #Construct Pauli Pairs
 pauli = ["I", "X", "Y", "Z"]
@@ -37,58 +35,50 @@ def load_ibm_backend(token: str, instance: str, backend_name: str):
     return backend, noise_model, service
 
 # --- Prepare Initial State ---
-def build_initial_states(qubit_count = 2):
-    qreg = QuantumRegister(qubit_count, 'q')
-    creg = ClassicalRegister(qubit_count, 'c')
+def build_initial_states(qubit):
+    qreg = QuantumRegister(qubit+1, 'q')
+    creg = ClassicalRegister(qubit+1, 'c')
 
-    initial_states = {}
     default_circuits = QuantumCircuit(qreg, creg)
     
-    # Prepare State of Qubit1 if needed
-    q1_states = {
+    # Prepare State of Qubit
+    states = {
         'zero': default_circuits.copy(),
         'one': default_circuits.copy(),
         'plus': default_circuits.copy(),
         'right': default_circuits.copy()
     }
-    q1_states['one'].x(1)
-    q1_states['plus'].h(1)
-    q1_states['right'].h(1); q1_states['right'].s(1)
+    states['one'].x(qubit)
+    states['plus'].h(qubit)
+    states['right'].h(qubit); states['right'].s(qubit)
 
-    # Prepare Sate of Qubit0
-    default_circuits.reset(range(2))
-    q0_states = {
-        'zero': default_circuits.copy(),
-        'one': default_circuits.copy(),
-        'plus': default_circuits.copy(),
-        'right': default_circuits.copy()
-    }
-    q0_states['one'].x(0)
-    q0_states['plus'].h(0)
-    q0_states['right'].h(0); q0_states['right'].s(0)
+    return states
 
-    if qubit_count == 1:
-        return q0_states
-
-    for q0k, qc0 in q0_states.items():
-        for q1k, qc1 in q1_states.items():
+# --- Combine Initial Circuit ---
+def combine_state(states1, states2):
+    initial_states = {}
+    for q0k, qc0 in states1.items():
+        for q1k, qc1 in states2.items():
             new_circ = qc0.compose(qc1)
-            initial_states[f"q0{q0k}_q1{q1k}"] = new_circ
-
+            initial_states.update({f'q0{q0k}_q1{q1k}':new_circ})
     return initial_states
 
 # --- Prepare Measurement ---
-def build_measurement_pauli(qubit_count=2, observable_number=2):
+def build_measurement_pauli(*qubits, observable_number):
     Measurement = {}
     pauli_labels = ['I', 'X', 'Y', 'Z']
-    if qubit_count == 1:
+    qubits = tuple(sorted(qubits))
+    
+    if len(qubits) == 1:
+        q = qubits[0]
         for p in pauli_labels:
-            Measurement[f"meas{p}"] = [Pauli(p)]
+            Measurement[f"meas{p}"] = [Pauli('I'*(observable_number-q-1) + p + 'I'*q)]
     else:
+        q1, q2 = qubits
         for p1 in pauli_labels:
             for p2 in pauli_labels:
                 key = f"meas{p2}{p1}"
-                Measurement[key] = [Pauli('I'*(observable_number-2) + p2 + p1)]
+                Measurement[key] = [Pauli('I'*(observable_number-q2-1) + p2 + 'I'*(q2-q1-1) + p1 + 'I'*q1)]
     return Measurement
 
 # --- Run Simulation ---
@@ -175,14 +165,14 @@ def build_corrected_observables(g, A, qubit_count=2):
     return B, qq
 
 # --- Build the Ideal Observable ---
-def build_ideal_measurement(qq, qubit_count=2, observable_number=2):
+def build_ideal_measurement(qq, target_qubit=0, qubit_count=2, observable_number=2):
     IdealMeasurement = {}
     if qubit_count == 1:
         Observable = ['I', 'X', 'Y', 'Z']
         for obs in Observable:
             IdealObservable = SparsePauliOp(['I' * (observable_number-1) + 'I'], coeffs=[qq[obs][0][0]])
             for i in range(1, len(Observable)):
-                IdealObservable += SparsePauliOp(['I' * (observable_number-1) + Observable[i]], coeffs=[qq[obs][0][i]])
+                IdealObservable += SparsePauliOp(['I' * (observable_number-target_qubit-1) + Observable[i] + 'I' * target_qubit], coeffs=[qq[obs][0][i]])
                 # IdealObservable += SparsePauliOp([(Observable[i])], coeffs=[qq[obs][0][i]])
                 IdealMeasurement[f"meas{obs}"] = IdealObservable
     else:
@@ -265,33 +255,6 @@ def generate_twirling_circuits(InitialState, PauliTwirling, transfer):
         Twirling_circuit_set.update({firstPauli:Twirling_circuit})
     return Twirling_circuit_set
 
-# def Coefficient_C(Avg_gateError):
-#     result = np.diag(Avg_gateError).reshape(16, 1).astype(complex)
-#     weight_c = np.matmul(inv(P), result)
-
-def make_noisy_estimator_from_device(
-    real_backend,
-    *,
-    shots: int = 1024,
-    seed_simulator: Optional[int] = None,
-) -> Tuple[BackendEstimator, AerSimulator]:
-    """
-    從『真機 backend』抽取雜訊，回傳 (estimator, t_backend)：
-      - estimator: BackendEstimator(backend = AerSimulator.from_backend(real_backend))
-      - t_backend: 同一個 AerSimulator（讓 transpile 與模擬一致）
-    """
-    sim = AerSimulator.from_backend(real_backend)     # 吃真機雜訊/基底門/耦合圖
-    est = BackendEstimator(backend=sim)
-
-    # 設定 shots / seed
-    try:
-        est.options.default_shots = shots
-    except Exception:
-        pass
-    if seed_simulator is not None:
-        try:
-            est.options.seed_simulator = seed_simulator
-        except Exception:
-            pass
-
-    return est, sim
+def Coefficient_C(Avg_gateError):
+    result = np.diag(Avg_gateError).reshape(16, 1).astype(complex)
+    weight_c = np.matmul(inv(P), result)

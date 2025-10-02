@@ -1,0 +1,15 @@
+{
+  "vector_dim": 64,
+  "vectors": [
+    {
+      "c": 1,
+      "t": 0,
+      "file": "weight_c1_t0.csv"
+    },
+    {
+      "c": 2,
+      "t": 1,
+      "file": "weight_c2_t1.csv"
+    }
+  ]
+}
