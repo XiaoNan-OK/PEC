@@ -1,5 +1,4 @@
 import numpy as np
-import os, json, time
 from qiskit import QuantumCircuit, transpile
 from qiskit.quantum_info import SparsePauliOp
 from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
@@ -35,26 +34,6 @@ def _used_qubit_indices(circ: QuantumCircuit) -> List[int]:
         for q in qargs:
             used.add(circ.find_bit(q).index)
     return sorted(used)
-
-def _compact_qubits(circ: QuantumCircuit) -> QuantumCircuit:
-    """Return a copy of circ that keeps only used qubits, remapped densely to [0..k-1]."""
-    used = _used_qubit_indices(circ)
-    if len(used) == circ.num_qubits:
-        return circ  # nothing to drop
-    mapping = {old: new for new, old in enumerate(used)}
-    new = QuantumCircuit(len(used), circ.num_clbits, name=circ.name)
-    for inst in circ.data:
-        try:
-            op, qargs, cargs = inst.operation, inst.qubits, inst.clbits
-        except AttributeError:
-            op, qargs, cargs = inst
-        new_q = []
-        for q in qargs:
-            old_idx = circ.find_bit(q).index
-            if old_idx in mapping:
-                new_q.append(new.qubits[mapping[old_idx]])
-        new.append(op, new_q, cargs)
-    return new
 
 # ---- get circuit & cnot information ----
 def cnot_pec(input_circuit: QuantumCircuit): 
@@ -373,34 +352,30 @@ def _kron_power_sparse(mat, n: int):
     return A
 
 # ---- calculate Average pauli twirling Matrix ----
-def transform_tqg_matrices_cxm_Ainv(obj,
-                       *,
-                       n: int | None = None,
-                       c: int | None = None,
-                       t: int | None = None,
-                       cxm_sparse: bool = True,
-                       ainv_sparse: bool = False):
+def averaged_pauli_twirling_matrix(obj, B, *, n: int | None = None, c: int | None = None, t: int | None = None, cxm_sparse: bool = True, ainv_sparse: bool = False):
     """
     Apply a transformation to the output of `compute_tqg_matrices(...)`:
-    M' = CXM^{-1} * GM * A^{-1}
-Details:
-    - CXM:
-        Obtained from `cnot_pauli_twirling_matrix(n, c, t, sparse=cxm_sparse)`.
-        Since the PTM of a CNOT is a permutation matrix, CXM^{-1} = CXM^T.
-    - A^{-1}:
-        First compute A_single^{-1} = inv(_A_SINGLE), then take the Kronecker power
-        to n qubits.
-Parameters:
-    cxm_sparse (bool): 
-        Whether to use a sparse CXM (recommended: True).
-    ainv_sparse (bool): 
-        Whether to use a sparse A^{-1} (recommended: True for large n; requires SciPy).
-Returns:
-    dict: Same structure as `tqg_pack`, but with the matrices inside 'matrices'
-          replaced by M'.
+    M' = CXM^{-1} * B^{-1} * GM * A^{-1}
+    Details:
+        - CXM:
+            Obtained from `cnot_pauli_twirling_matrix(n, c, t, sparse=cxm_sparse)`.
+            Since the PTM of a CNOT is a permutation matrix, CXM^{-1} = CXM^T.
+        - A^{-1}:
+            First compute A_single^{-1} = inv(_A_SINGLE), then take the Kronecker power
+            to n qubits.
+        - B^{-1}:
+            The inverse of the "Read out" matrix B, which converts a density matrix
+    Parameters:
+        cxm_sparse (bool): 
+            Whether to use a sparse CXM (recommended: True).
+        ainv_sparse (bool): 
+            Whether to use a sparse A^{-1} (recommended: True for large n; requires SciPy).
+    Returns:
+        dict: Same structure as `tqg_pack`, but with the matrices inside 'matrices'
+            replaced by M'.
     """
     A_single_inv = np.linalg.inv(_A_SINGLE)
-
+    B_inv = np.linalg.inv(B)
     # --- Type1： dictionary ---
     if isinstance(obj, dict):
         pack = obj
@@ -420,8 +395,15 @@ Returns:
             c_key, t_key = key
             CXM, _ = cnot_pauli_twirling_matrix(n, c_key, t_key, sparse=cxm_sparse)
             # CXM^{-1} = CXM^T
-            left = (CXM.T).dot(GM) if issparse(CXM) else CXM.T @ GM
-            Mprime = left.dot(Ainv) if ainv_sparse else left @ Ainv
+            if issparse(CXM):
+                left = (CXM.T).dot(B_inv)  
+            else: 
+                left = CXM.T @ B_inv
+            if ainv_sparse:
+                right = GM.dot(Ainv)  
+            else:
+                right = GM @ Ainv
+            Mprime = left@right
             mats_out[key] = Mprime
 
         return {

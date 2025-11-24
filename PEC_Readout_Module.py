@@ -4,25 +4,72 @@ import numpy as np
 from numpy.linalg import inv
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, transpile
 from qiskit.quantum_info import SparsePauliOp
+from qiskit.transpiler import CouplingMap
 from qiskit_aer import AerSimulator
 from qiskit_aer.primitives import EstimatorV2 as Estimator
 
 def transpile_mode(circuit: QuantumCircuit, backend=None, policy: str = "lock_n") -> QuantumCircuit:
     """
     Transpile a circuit according to policy.
-    - "lock_n": keep the circuit at its logical n qubits (no ancilla/routing).
+    - "lock_n": keep the circuit at its logical n qubits using backend's basis_gates
+                and a coupling_map restricted to n physical qubits (no expansion).
     - "pad_to_backend": map to backend.num_qubits with trivial layout, no routing.
     """
     n = circuit.num_qubits
 
     if policy == "lock_n":
+        # 用 backend 的 gate set；同時把耦合圖裁成「只含 n 顆、且 relabel 成 0..n-1」的子圖
         basis = None
         if backend is not None:
             try:
                 basis = backend.configuration().basis_gates
             except Exception:
-                pass
-        return transpile(circuit, basis_gates=basis, optimization_level=0)
+                basis = None
+
+        coupling = None
+        if backend is not None:
+            try:
+                full_edges = backend.configuration().coupling_map  # [[u,v], ...]
+            except Exception:
+                full_edges = None
+            if full_edges:
+                # 從 0 開始 BFS 撈到 n 顆（簡易連通子圖）；不追求最佳，只求不擴張
+                from collections import deque
+                adj = {}
+                for u, v in full_edges:
+                    adj.setdefault(u, set()).add(v)
+                    adj.setdefault(v, set()).add(u)
+                start = 0 if adj else 0
+                picked, dq, seen = [], deque([start]), {start}
+                while dq and len(picked) < n:
+                    u = dq.popleft()
+                    picked.append(u)
+                    for v in sorted(adj.get(u, [])):
+                        if v not in seen:
+                            seen.add(v); dq.append(v)
+                # 若撈不到 n 顆，就退而求其次用 0..n-1
+                if len(picked) < n:
+                    picked = list(range(n))
+                # 只保留子圖邊，並 relabel → 0..n-1
+                S = set(picked)
+                sub_edges = [(u, v) for (u, v) in full_edges if u in S and v in S]
+                remap = {p: i for i, p in enumerate(picked)}
+                remapped = [(remap[u], remap[v]) for (u, v) in sub_edges]
+                coupling = CouplingMap(couplinglist=remapped)
+        # 關鍵：不傳 backend（避免被擴到 backend.num_qubits）
+        tc = transpile(
+            circuit,
+            basis_gates=basis,
+            coupling_map=coupling,          # 只用 n 顆的局部耦合圖
+            initial_layout=list(range(n)),  # 邏輯 0..n-1 → 局部 0..n-1
+            layout_method="trivial",
+            routing_method="sabre",         # 或 "none" 若原本就相鄰
+            optimization_level=0,
+        )
+        # 保命檢查：不應被擴張
+        assert tc.num_qubits == n, f"Transpiled size changed to {tc.num_qubits}, expected {n}"
+        return tc
+
     elif policy == "pad_to_backend":
         if backend is None:
             raise ValueError("pad_to_backend 需要提供 backend")
@@ -32,29 +79,52 @@ def transpile_mode(circuit: QuantumCircuit, backend=None, policy: str = "lock_n"
             m = backend.configuration().num_qubits
         if m < n:
             raise ValueError(f"Backend qubits {m} < logical qubits {n}")
-        return transpile(circuit, backend=backend, optimization_level=0, layout_method="trivial", routing_method="none", initial_layout=list(range(n)))
+        return transpile(
+            circuit,
+            backend=backend,
+            optimization_level=0,
+            layout_method="trivial",
+            routing_method="none",
+            initial_layout=list(range(n))
+        )
 
     else:
         raise ValueError("policy must be 'lock_n' or 'pad_to_backend'")
+    
+def _extract_evs_list(prim_result):
+    """
+    Robustly extract a flat list of EVs from EstimatorV2 PrimitiveResult.
+    Works with Aer EstimatorV2 and falls back to legacy iterable behavior.
+    """
+    results_list = getattr(prim_result, "results", None)
+    if results_list is not None:
+        return [np.atleast_1d(r.data.evs).ravel()[0] for r in results_list]
+    try:
+        return [np.atleast_1d(r.data.evs).ravel()[0] for r in prim_result]
+    except Exception as e:
+        raise TypeError(f"Unsupported Estimator result format: {type(prim_result)}") from e
 
 def run_measurements(circuits, measurements, backend=None, shots=1024, estimator=None, batch_size=256):
     """
     Submit all (circuit, measurement) pairs to the provided Estimator.
-    - circuits: dict[name->qc] or dict[prefix->dict[name->qc]]
-    - measurements: dict[name-> [SparsePauliOp or Pauli]]
-    - backend: used only for transpile (can be None to skip)
-    - shots: if not None, try to set estimator.options.default_shots = shots
-    - estimator: externally created EstimatorV2 (preferred). If None, create a local Aer EstimatorV2.
+    ...
     """
     # Use the externally provided estimator if given; otherwise create a local Aer EstimatorV2.
-    est = estimator if estimator is not None else Estimator(backend=backend, options={"run_options": {"shots": shots}})
+    if estimator is None:
+        try:
+            est = Estimator(backend=backend, options={"run_options": {"shots": shots}})
+        except TypeError:
+            # 部分環境的 EstimatorV2 沒有 backend 參數
+            est = Estimator(options={"run_options": {"shots": shots}})
+    else:
+        est = estimator
+
     if shots is not None:
         try:
             est.options.default_shots = shots
         except Exception:
             pass
 
-    # 收集所有 pair
     is_2D = isinstance(next(iter(circuits.values())), dict)
     pairs = []
     if is_2D:
@@ -69,41 +139,22 @@ def run_measurements(circuits, measurements, backend=None, shots=1024, estimator
 
     raw_circs = [c for (c, _) in pairs]
     if backend is not None:
-        tcs = []
-        for c in raw_circs:
-            tc = transpile_mode(c, backend=backend, policy="pad_to_backend")
-            tcs.append(tc)
+        tcs = [transpile_mode(c, backend=backend, policy="lock_n") for c in raw_circs]
     else:
         tcs = raw_circs
 
-    # 重組成 batched inputs 並分批提交，觸發 max_parallel_experiments
     batched_evs = []
     def chunk(seq, n):
         for i in range(0, len(seq), n):
             yield seq[i:i+n]
 
-    # 將對應的測量物件映回
     meas_list = [m for (_, m) in pairs]
     for idx_chunk in chunk(list(range(len(tcs))), batch_size):
         pubs_chunk = [(tcs[i], meas_list[i]) for i in idx_chunk]
         res = est.run(pubs_chunk).result()
-        # 直接在這裡即可提取；也可保留原本 collect_results 的流程
         batched_evs.extend(_extract_evs_list(res))
 
     return np.asarray(batched_evs, dtype=float)
-
-def _extract_evs_list(prim_result):
-    """
-    Robustly extract a flat list of EVs from EstimatorV2 PrimitiveResult.
-    Works with Aer EstimatorV2 and falls back to legacy iterable behavior.
-    """
-    results_list = getattr(prim_result, "results", None)
-    if results_list is not None:
-        return [np.atleast_1d(r.data.evs).ravel()[0] for r in results_list]
-    try:
-        return [np.atleast_1d(r.data.evs).ravel()[0] for r in prim_result]
-    except Exception as e:
-        raise TypeError(f"Unsupported Estimator result format: {type(prim_result)}") from e
 
 def collect_results(jobs, qubit_count=None):
     """
@@ -256,7 +307,7 @@ def build_ideal_measurement(qq, qubit_count=2, observable_number=None):
 def readout_pec_from_circuit(circuit: QuantumCircuit, estimator, *, 
                              shots=None, transpile_backend=None, 
                              transpile_policy: str = "lock_n",   # "lock_n" 或 "pad_to_backend"
-                            batch_size: int = 256):
+                             batch_size: int = 256):
     """
     One-call Readout PEC calibration driven only by (circuit, estimator).
     - Infers n = circuit.num_qubits.
@@ -265,22 +316,24 @@ def readout_pec_from_circuit(circuit: QuantumCircuit, estimator, *,
     - Returns B and qq (and also G, A, IdealMeasurement for convenience).
     """
     n = circuit.num_qubits
-    m = transpile_backend.num_qubits if transpile_backend is not None else n
+    if transpile_policy == "pad_to_backend" and transpile_backend is not None:
+        try:
+            m = transpile_backend.num_qubits
+        except Exception:
+            m = transpile_backend.configuration().num_qubits
+    else:
+        m = n  # ★ 預設 lock_n：observable 長度就維持 n
 
-    # Build calibration sets
     inits = build_initial_states(qubit_count=n)
     meas  = build_measurement_pauli(qubit_count=n, observable_number=m, order="RL")
 
-    # Run with the user-provided estimator
-    evs = run_measurements(inits, meas, backend=transpile_backend, shots=shots, estimator=estimator)
+    # 內部 run_measurements 會用 policy="lock_n" + backend 的 n-子圖做轉譯（不擴張）
+    evs = run_measurements(inits, meas, backend=transpile_backend, shots=shots, estimator=estimator, batch_size=batch_size)
     dim = 4**n
     G = np.asarray(evs, dtype=float).reshape(dim, dim)
 
-    # Collect and compute B, qq
     A = get_preparation_matrix(qubit_count=n)
     B, RD_weight = build_corrected_observables(G, A, qubit_count=n)
-
-    # Optional: prebuild ideal measurement operators for downstream usage
     IdealMeas = build_ideal_measurement(RD_weight, qubit_count=n, observable_number=n)
 
     return {

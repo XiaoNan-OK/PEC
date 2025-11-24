@@ -72,15 +72,6 @@ def cnot_pec(input_circuit: QuantumCircuit):
             cnots.append({"data_idx": k, "control": c, "target": t})
     return {"num_qubits": n, "cnot_list": cnots}
 
-def unique_cnot_keys(input_circuit: QuantumCircuit) -> List[Tuple[int,int]]:
-    info = cnot_pec(input_circuit)
-    seen, keys = set(), []
-    for rec in info["cnot_list"]:
-        key = (rec["control"], rec["target"])
-        if key not in seen:
-            seen.add(key); keys.append(key)
-    return keys
-
 
 # --------- (2) Construct Initial, observable set ----------
 #---- Construct initial state labels：{|0>,|1>,|+>,|R>} ⊗ 4^n, from left ----
@@ -270,32 +261,6 @@ def compute_matrix_for_tqg(estimator,
 
     return M, obs_labels, init_labels
 
-# ---- calculate average gram matrix with each cnot ----
-def compute_tqg_matrices(estimator, input_circuit: QuantumCircuit, obs_batch: int = 256):
-    """
-    回傳：
-      {
-        'num_qubits': n,
-        'row_labels': [obs_label...],   # 4^n
-        'col_labels': [init_label...],  # 4^n
-        'matrices': { (c,t): np.ndarray((4^n, 4^n)) }
-      }
-    """
-    n = input_circuit.num_qubits
-    matrices: Dict[Tuple[int,int], np.ndarray] = {}
-    row_labels = col_labels = None
-
-    for key in unique_cnot_keys(input_circuit):
-        M, rlabs, clabs = compute_matrix_for_tqg(estimator, input_circuit, key, obs_batch=obs_batch)
-        matrices[key] = M
-        row_labels = rlabs; col_labels = clabs
-
-    return {
-        "num_qubits": n,
-        "row_labels": row_labels,
-        "col_labels": col_labels,
-        "matrices": matrices,
-    }
 
 
 # --------- (6) Calculate average expectation matrix of each cnot ----------
@@ -570,6 +535,8 @@ def _twirled_variant_for_all_cnot(orig: QuantumCircuit,
 
 
 # ---- Correct TQG-PEC: joint enumeration over ALL CNOT Pauli assignments ----
+import time # Make sure to import the time module at the top of your .py file
+
 def tqg_pec_single_circuit_joint(estimator,
                                  circuit: QuantumCircuit,
                                  observable: SparsePauliOp,
@@ -580,63 +547,58 @@ def tqg_pec_single_circuit_joint(estimator,
                                  t_opt_level: int = 0,
                                  progress: bool = False) -> float:
     """
-    Correct PEC estimator for a single circuit and observable by JOINT enumeration:
-      PEC = sum_{(p_1,...,p_m)} [ prod_{i=1..m} w_i(p_i) ] * <O>_{U(p_1,...,p_m)},
-    where m = number of CNOT instances in the circuit, and U(p_1,...,p_m) inserts
-    pre/post Pauli layers around EVERY CNOT according to the chosen labels.
-
-    - weights_map: {(c,t): weights} with length 4^n each, in the order of enum_pauli_labels(n).
-    - combo_batch_size: how many joint combinations (circuits) to evaluate per estimator.run() call.
+    Correct PEC estimator for a single circuit and observable by JOINT enumeration...
+    (docstring remains the same)
     """
-    info = cnot_pec(circuit)   # {'num_qubits': n, 'cnot_list': [{'data_idx','control','target'}, ...]}
+    info = cnot_pec(circuit)
     n = info["num_qubits"]
     cnot_list = info["cnot_list"]
     m = len(cnot_list)
 
-    # No CNOTs: just evaluate once
     if m == 0:
+        # This part runs only once, so we won't add detailed timers here.
         cir = circuit
         if t_backend is not None:
-            # lock layout to only the qubits actually used by the circuit
             layout = _used_qubit_indices(cir) or list(range(cir.num_qubits))
             cir = transpile(
-                [cir],
-                backend=t_backend,
-                initial_layout=layout,
-                layout_method="trivial",
-                routing_method="none",
-                optimization_level=t_opt_level,
+                [cir], backend=t_backend, initial_layout=layout,
+                layout_method="trivial", routing_method="none",
+                optimization_level=t_opt_level
             )[0]
             cir = _compact_qubits(cir)
         ev = _estimator_expect_many(estimator, cir, [observable])[0]
         return float(ev)
 
-    pre_labels = enum_pauli_labels(n)   # length = 4^n
+    pre_labels = enum_pauli_labels(n)
     N = len(pre_labels)
 
-    # Sanity checks on weights
     for rec in cnot_list:
         key = (rec["control"], rec["target"])
         w = weights_map.get(key)
         if (w is None) or (len(w) != N):
             raise ValueError(f"weights_map key={key} missing or length != 4^n={N}")
 
-    # Iterator over all joint assignments: each CNOT picks an index in [0..N-1]
     it = product(range(N), repeat=m)
     total_combos = N**m
-
     acc = 0.0
     processed = 0
-
+    
+    # --- Start of main loop ---
+    batch_num = 0 # Add a counter for batches
     while True:
-        # Take a batch of joint assignments
+        # === TIMER START: Overall loop timer ===
+        t_loop_start = time.time()
+        batch_num += 1
+
         batch_idx_tuples = list(islice(it, combo_batch_size))
         if not batch_idx_tuples:
             break
 
+        # === TIMER START: Circuit Generation ===
+        t1 = time.time()
+        
         circs = []
         weight_batch = []
-
         for idx_tuple in batch_idx_tuples:
             labels = [pre_labels[i] for i in idx_tuple]
             w_prod = 1.0
@@ -648,9 +610,16 @@ def tqg_pec_single_circuit_joint(estimator,
             circs.append(tw)
             weight_batch.append(w_prod)
 
-        #  Process the entire batch at once
+        t2 = time.time()
+        print(f"\n--- Batch {batch_num} (Size: {len(circs)}) ---")
+        print(f"[TIMER] Circuit Generation: {t2 - t1:.4f}s")
+        # === TIMER END: Circuit Generation ===
+
+        
+        # === TIMER START: Transpilation ===
+        t3 = time.time()
+        
         if t_backend is not None:
-            # derive a fixed layout from the original (pre-twirl) circuit’s used lines
             layout = _used_qubit_indices(circuit) or list(range(circuit.num_qubits))
             circs = transpile(
                 circs,
@@ -660,48 +629,180 @@ def tqg_pec_single_circuit_joint(estimator,
                 routing_method="none",
                 optimization_level=t_opt_level,
             )
-            # drop any idle lines the transpiler might have kept
             circs = [_compact_qubits(c) for c in circs]
+        
+        t4 = time.time()
+        # Only print if transpilation actually happened
+        if t_backend is not None:
+            print(f"[TIMER] Transpilation:       {t4 - t3:.4f}s")
+        # === TIMER END: Transpilation ===
 
-        # sent the whole batch to Estimator at once
+
+        # === TIMER START: Estimator Execution ===
+        t5 = time.time()
+        
         pubs = [(cir, [observable], None) for cir in circs]
         res = estimator.run(pubs).result()
+        
+        t6 = time.time()
+        print(f"[TIMER] Estimator Execution:  {t6 - t5:.4f}s")
+        # === TIMER END: Estimator Execution ===
 
-        # Extract expectation values in a compatible way (avoid using res[j])
-        evs = _extract_evs_from_result(res)   # This returns something like [ev0, ev1, ...]
-        # Safety check: some versions may only return the first result, so fall back to per-circuit extraction
+        
+        # === TIMER START: Result Processing ===
+        t7 = time.time()
+        
+        evs = _extract_evs_from_result(res)
         if evs.shape[0] != len(circs):
-            # Fallback: evaluate circuit by circuit
             evs = []
             for cir in circs:
                 evs.append(_estimator_expect_many(estimator, cir, [observable])[0])
             evs = np.asarray(evs, dtype=float)
-
-        # Weighted accumulation
+        
         acc += float(np.dot(weight_batch, evs))
+        
+        t8 = time.time()
+        print(f"[TIMER] Result Processing:    {t8 - t7:.4f}s")
+        # === TIMER END: Result Processing ===
+        
 
         processed += len(circs)
-
         if progress and processed % (10 * combo_batch_size) == 0:
             pct = 100.0 * processed / total_combos
             print(f"[JOINT] {processed}/{total_combos} combos done ({pct:.2f}%)")
-        # Free batch objects
+        
         del circs, pubs, res, weight_batch
 
-    return float(acc)
+        # === TIMER END: Overall loop timer ===
+        t_loop_end = time.time()
+        print(f"[TIMER] Total Batch Time:     {t_loop_end - t_loop_start:.4f}s")
+        print("---------------------------------")
 
-def _iter_nested_package(qc_bzls: Dict) -> Iterable[Tuple[str, int, int, int, QuantumCircuit]]: 
-    """ 
-    迭代你給的資料結構：Bz -> [time 列表] -> [carbon set 列表] -> [circuits 列表]。 
-    逐一回傳 (Bz, t_idx, c_idx, circ_idx, circuit)。 
-    """ 
-    for Bz, t_lists in qc_bzls.items(): # 4 個 Bz 
-        for t_idx, c_lists in enumerate(t_lists): # t 個時間點 
-            for c_idx, circ in enumerate(c_lists): # c 組 carbon set 
-                yield Bz, t_idx, c_idx, circ 
+
+    return float(acc)
+# def tqg_pec_single_circuit_joint(estimator,
+#                                  circuit: QuantumCircuit,
+#                                  observable: SparsePauliOp,
+#                                  weights_map: Dict[Tuple[int, int], np.ndarray],
+#                                  *,
+#                                  combo_batch_size: int = 64,
+#                                  t_backend=None,
+#                                  t_opt_level: int = 0,
+#                                  progress: bool = False) -> float:
+#     """
+#     Correct PEC estimator for a single circuit and observable by JOINT enumeration:
+#       PEC = sum_{(p_1,...,p_m)} [ prod_{i=1..m} w_i(p_i) ] * <O>_{U(p_1,...,p_m)},
+#     where m = number of CNOT instances in the circuit, and U(p_1,...,p_m) inserts
+#     pre/post Pauli layers around EVERY CNOT according to the chosen labels.
+
+#     - weights_map: {(c,t): weights} with length 4^n each, in the order of enum_pauli_labels(n).
+#     - combo_batch_size: how many joint combinations (circuits) to evaluate per estimator.run() call.
+#     """
+#     info = cnot_pec(circuit)   # {'num_qubits': n, 'cnot_list': [{'data_idx','control','target'}, ...]}
+#     n = info["num_qubits"]
+#     cnot_list = info["cnot_list"]
+#     m = len(cnot_list)
+
+#     # No CNOTs: just evaluate once
+#     if m == 0:
+#         cir = circuit
+#         if t_backend is not None:
+#             # lock layout to only the qubits actually used by the circuit
+#             layout = _used_qubit_indices(cir) or list(range(cir.num_qubits))
+#             cir = transpile(
+#                 [cir],
+#                 backend=t_backend,
+#                 initial_layout=layout,
+#                 layout_method="trivial",
+#                 routing_method="none",
+#                 optimization_level=t_opt_level,
+#             )[0]
+#             cir = _compact_qubits(cir)
+#         ev = _estimator_expect_many(estimator, cir, [observable])[0]
+#         return float(ev)
+
+#     pre_labels = enum_pauli_labels(n)   # length = 4^n
+#     N = len(pre_labels)
+
+#     # Sanity checks on weights
+#     for rec in cnot_list:
+#         key = (rec["control"], rec["target"])
+#         w = weights_map.get(key)
+#         if (w is None) or (len(w) != N):
+#             raise ValueError(f"weights_map key={key} missing or length != 4^n={N}")
+
+#     # Iterator over all joint assignments: each CNOT picks an index in [0..N-1]
+#     it = product(range(N), repeat=m)
+#     total_combos = N**m
+
+#     acc = 0.0
+#     processed = 0
+
+#     while True:
+#         # Take a batch of joint assignments
+#         batch_idx_tuples = list(islice(it, combo_batch_size))
+#         if not batch_idx_tuples:
+#             break
+
+#         circs = []
+#         weight_batch = []
+
+#         for idx_tuple in batch_idx_tuples:
+#             labels = [pre_labels[i] for i in idx_tuple]
+#             w_prod = 1.0
+#             for j, i_lab in enumerate(idx_tuple):
+#                 rec = cnot_list[j]
+#                 key = (rec["control"], rec["target"])
+#                 w_prod *= float(weights_map[key][i_lab])
+#             tw = _twirled_variant_for_all_cnot(circuit, cnot_list, labels)
+#             circs.append(tw)
+#             weight_batch.append(w_prod)
+
+#         #  Process the entire batch at once
+#         if t_backend is not None:
+#             # derive a fixed layout from the original (pre-twirl) circuit’s used lines
+#             layout = _used_qubit_indices(circuit) or list(range(circuit.num_qubits))
+#             circs = transpile(
+#                 circs,
+#                 backend=t_backend,
+#                 initial_layout=layout,
+#                 layout_method="trivial",
+#                 routing_method="none",
+#                 optimization_level=t_opt_level,
+#             )
+#             # drop any idle lines the transpiler might have kept
+#             circs = [_compact_qubits(c) for c in circs]
+
+#         print(len(circs))
+#         # sent the whole batch to Estimator at once
+#         pubs = [(cir, [observable], None) for cir in circs]
+#         res = estimator.run(pubs).result()
+
+#         # Extract expectation values in a compatible way (avoid using res[j])
+#         evs = _extract_evs_from_result(res)   # This returns something like [ev0, ev1, ...]
+#         # Safety check: some versions may only return the first result, so fall back to per-circuit extraction
+#         if evs.shape[0] != len(circs):
+#             # Fallback: evaluate circuit by circuit
+#             evs = []
+#             for cir in circs:
+#                 evs.append(_estimator_expect_many(estimator, cir, [observable])[0])
+#             evs = np.asarray(evs, dtype=float)
+
+#         # Weighted accumulation
+#         acc += float(np.dot(weight_batch, evs))
+
+#         processed += len(circs)
+
+#         if progress and processed % (10 * combo_batch_size) == 0:
+#             pct = 100.0 * processed / total_combos
+#             print(f"[JOINT] {processed}/{total_combos} combos done ({pct:.2f}%)")
+#         # Free batch objects
+#         del circs, pubs, res, weight_batch
+
+#     return float(acc)
                 
-def _ckpt_key(Bz: str, t_idx: int, c_idx: int, obs_name: str) -> str: 
-    return f"{Bz}|t{t_idx}|c{c_idx}|{obs_name}" 
+def _ckpt_key(obs_name: str) -> str: 
+    return f"{obs_name}" 
 
 def _load_done_set(ckpt_path: str) -> Dict[str, Dict]: 
     done = {} 
@@ -716,7 +817,7 @@ def _load_done_set(ckpt_path: str) -> Dict[str, Dict]:
     return done
 
 def run_tqg_pec_package(estimator,
-                        qc_bzls: Dict,
+                        qcircuit: Dict,
                         observables: Dict[str, SparsePauliOp],
                         weights_map: Dict[Tuple[int, int], np.ndarray],
                         *,
@@ -738,7 +839,7 @@ def run_tqg_pec_package(estimator,
     done_map = _load_done_set(ckpt_path) if resume else {}
     results: Dict[str, Dict] = dict(done_map)  # preload completed entries
 
-    total_units = sum(1 for _ in _iter_nested_package(qc_bzls)) * len(observables)
+    total_units = len(observables)
     finished = len(done_map)
     if verbose:
         print(f"[RUN] total tasks = {total_units}, already done = {finished}, resume={resume}, ckpt='{ckpt_path}'")
@@ -746,38 +847,44 @@ def run_tqg_pec_package(estimator,
     mode = "a" if resume else "w"
     with open(ckpt_path, mode) as fout:
         unit = 0
-        for Bz, t_idx, c_idx, circ in _iter_nested_package(qc_bzls):
-            for obs_name, observable in observables.items():
-                key = _ckpt_key(Bz, t_idx, c_idx, obs_name)
-                unit += 1
-                if resume and key in done_map:
-                    if verbose and unit % 50 == 0:
-                        print(f"[SKIP] {unit}/{total_units}  {key}")
-                    continue
+        for obs_name, observable in observables.items():
+            key = _ckpt_key(obs_name)
+            unit += 1
+            if resume and key in done_map:
+                if verbose and unit % 50 == 0:
+                    print(f"[SKIP] {unit}/{total_units}  {key}")
+                continue
 
-                try:
-                    circ = _ensure_quantum_circuit(circ)
-                except TypeError as e:
-                    raise TypeError(f"[BAD ITEM] key={key}  {e}")
+            try:
+                qcircuit = _ensure_quantum_circuit(qcircuit)
+            except TypeError as e:
+                raise TypeError(f"[BAD ITEM] key={key}  {e}")
 
-                # === The only line that changes: call the JOINT version ===
-                val = tqg_pec_single_circuit_joint(
-                    estimator, circ, observable, weights_map,
-                    combo_batch_size=combo_batch_size,
-                    t_backend=t_backend, t_opt_level=t_opt_level,
-                    progress=True
-                )
+            # === The only line that changes: call the JOINT version ===
+            val = tqg_pec_single_circuit_joint(
+                estimator, qcircuit, observable, weights_map,
+                combo_batch_size=combo_batch_size,
+                t_backend=t_backend, t_opt_level=t_opt_level,
+                progress=True
+            )
 
-                rec = {"key": key, "Bz": Bz, "t": t_idx, "c": c_idx+1,
-                       "obs": obs_name, "value": float(val)}
-                fout.write(json.dumps(rec) + "\n")
-                fout.flush()
-                results[key] = rec
+            rec = {"obs": obs_name, "value": float(val)}
+            fout.write(json.dumps(rec) + "\n")
+            fout.flush()
+            results[key] = rec
 
-                if verbose and unit % 10 == 0:
-                    pct = 100.0 * unit / total_units
-                    print(f"[PROGRESS] {unit}/{total_units} ({pct:5.1f}%)  {key}  → value={val:.6f}")
+            if verbose and unit % 10 == 0:
+                pct = 100.0 * unit / total_units
+                print(f"[PROGRESS] {unit}/{total_units} ({pct:5.1f}%)  {key}  → value={val:.6f}")
 
     if verbose:
         print("[DONE] results saved in", ckpt_path)
     return results
+
+def linear_combo_targets(e_vec, readout_weight_dict, targets=("ZZ","IX")):
+    out = {}
+    for tgt in targets:
+        w = np.asarray(readout_weight_dict[tgt]).ravel()  # shape (16,)
+        assert w.shape[0] == len(BASE_LABELS_2Q)
+        out[tgt] = float(w @ e_vec)
+    return out
