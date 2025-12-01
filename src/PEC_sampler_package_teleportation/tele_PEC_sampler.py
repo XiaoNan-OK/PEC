@@ -283,10 +283,10 @@ def run_tqg_pec_package_sampler(
                 rec = info["cnot_list"][j]
                 key = (rec["control"], rec["target"])
                 w_prod *= float(tqg_weights[key][i_lab])
-            idx2pair = _prepare_idx2pair(
-                circ, info["cnot_list"], labs,
-                phys2active=info["phys2active"]
-            )
+            # idx2pair = _prepare_idx2pair(
+            #     circ, info["cnot_list"], labs,
+            #     phys2active=info["phys2active"]
+            # )
 
             for name, obs in observables.items():
                 qc = _meas_circuit_for_observable(circ, obs, active_qubits)
