@@ -283,16 +283,15 @@ def compare_pec_vs_nopec_sampler(
     observables = {f"meas{lbl}": obs(lbl) for lbl in pauli_labels_k(3)}
 
     fidelity_pec, fidelity_nopec = [], []
-    details_pec, details_nopec = [], []
     meas_pec_records, meas_nopec_records = [], []
-    for i in range(1, n_trials+1):
-        fid_nopec, meas_nopec = one_trial_nopec_S_sampler(
-            sampler, state, qcircuit, backend=backend, 
-            opt_level=opt_level, shots=shots,
-            meas_qubits=meas_qubits
-        )
-        fidelity_nopec.append(fid_nopec); meas_nopec_records.append(meas_nopec)
-        print(f"[{i}/{n_trials}]  S(noPEC)={fid_nopec:.8f}")
+    # for i in range(1, n_trials+1):
+    #     fid_nopec, meas_nopec = one_trial_nopec_S_sampler(
+    #         sampler, state, qcircuit, backend=backend, 
+    #         opt_level=opt_level, shots=shots,
+    #         meas_qubits=meas_qubits
+    #     )
+    #     fidelity_nopec.append(fid_nopec); meas_nopec_records.append(meas_nopec)
+    #     print(f"[{i}/{n_trials}]  S(noPEC)={fid_nopec:.8f}")
     for i in range(1, n_trials+1):      
         fid_pec, meas_pec = one_trial_pec_S_sampler(
             sampler, state, qcircuit, observables, backend=backend,

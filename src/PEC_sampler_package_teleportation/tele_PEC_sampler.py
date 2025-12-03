@@ -1,5 +1,6 @@
 import numpy as np
 from itertools import product, islice
+from collections import Counter
 from typing import Dict, List, Tuple, Optional
 from itertools import product, islice
 from qiskit import QuantumCircuit, ClassicalRegister, transpile
@@ -82,7 +83,7 @@ def apply_pauli_layer(qc: QuantumCircuit, label: str, active_qubits: Optional[Li
 def _prepare_idx2pair(orig: QuantumCircuit,
                       cnot_list: List[Dict],
                       label_strs: List[str],
-                      phys2active: Optional[Dict[int, int]]=None) -> QuantumCircuit:
+                      phys2active: Optional[Dict[int, int]]=None) -> Dict[int, Tuple[str, str]]:
     idx2pair = {}
     for lab, rec in zip(label_strs, cnot_list):
         c = rec["control"]; t = rec["target"]
@@ -134,7 +135,7 @@ def _extract_quasi_or_counts_list(res):
 # --------------- Twirl & 測量建構 ---------------
 
 def _twirled_variant_for_all_cnot(orig: QuantumCircuit,
-                                  idx2pair: Optional[Dict[str, Tuple[str, str]]] = None,
+                                  idx2pair: Optional[Dict[int, Tuple[str, str]]] = None,
                                   active_qubits: Optional[List[int]] = None,) -> QuantumCircuit:
     qc = QuantumCircuit(orig.num_qubits, orig.num_clbits, name=f"{orig.name or 'circ'}|twirl_all")
     for k, inst in enumerate(orig.data):
@@ -265,9 +266,13 @@ def run_tqg_pec_package_sampler(
     results = {name: 0.0 for name in observables}
     total = N ** n_cnot
     done = 0
+    num_batch = 1
     it = product(range(N), repeat=n_cnot)
 
-    # 用來累積「要一次丟進 sampler」的電路
+    # 閥值：只有 |w_prod| > threshold_wn 才會真的跑
+    threshold_w = 1e-8
+    
+    #累積「要一次丟進 sampler」的電路
     pending_circs: List[QuantumCircuit] = []
     pending_meta:  List[Tuple[str, float]] = []   # (obs_name, w_prod)
 
@@ -283,13 +288,18 @@ def run_tqg_pec_package_sampler(
                 rec = info["cnot_list"][j]
                 key = (rec["control"], rec["target"])
                 w_prod *= float(tqg_weights[key][i_lab])
-            # idx2pair = _prepare_idx2pair(
-            #     circ, info["cnot_list"], labs,
-            #     phys2active=info["phys2active"]
-            # )
+            # w_prod 閥值判斷（只跑 |w_prod| > 1e-8 的 branch）
+            if abs(w_prod) <= threshold_w:
+                done += 1
+                if verbose and done % (total // 1000 or 1) == 0:
+                    print(f"{done}/{total} ({100*done/total:.1f}%)")
+                continue
+            idx2pair = _prepare_idx2pair(circ, info["cnot_list"], labs, phys2active=info["phys2active"])
+            base_twirl = _twirled_variant_for_all_cnot(circ, idx2pair=idx2pair, active_qubits=active_qubits)
+            # print(f"now is {labs}:", base_twirl)
 
             for name, obs in observables.items():
-                qc = _meas_circuit_for_observable(circ, obs, active_qubits)
+                qc = _meas_circuit_for_observable(base_twirl, obs, active_qubits)
                 if qc is None:
                     # observable 是 I...，期望值恆為 +1
                     results[name] += w_prod
@@ -298,14 +308,82 @@ def run_tqg_pec_package_sampler(
                 pending_meta.append((name, w_prod))
 
                 if len(pending_circs) >= max_batch:
+                    print(f"start saampler batch{num_batch}")
                     tqg_pec_batch_circuit_sampler(sampler, pending_circs, pending_meta, results, backend=backend, opt_level=opt_level, shots=shots)
+                    numbatch += 1
 
-        done += len(batch)
-        if verbose and done % (total // 10 or 1) == 0:
-            print(f"{done}/{total} ({100*done/total:.1f}%)")
+            done += 1
+            if verbose and done % (total // 1000 or 1) == 0:
+                print(f"{done}/{total} ({100*done/total:.1f}%)")
 
     # 迴圈跑完後，如果還有殘留沒 flush 的，就最後再跑一次
     if pending_circs:
+        print(f"start saampler batch{num_batch}")
         tqg_pec_batch_circuit_sampler(sampler, pending_circs, pending_meta, results, backend=backend, opt_level=opt_level, shots=shots)
     
     return {name: {"obs": name, "value": float(val)} for name, val in results.items()}
+
+# weights distribution
+def analyze_tqg_weights_distribution(
+    qcircuit: QuantumCircuit,
+    tqg_weights: Dict[Tuple[int, int], np.ndarray],
+    *,
+    verbose: bool = True
+):
+    """
+    分析 TQG PEC 全部 w_prod 的分布（不跑任何模擬，只計算 weights）。
+    回傳 bins, zero_count。
+    """
+    circ = _ensure_quantum_circuit(qcircuit)
+    info = circuit_information(circ)
+
+    active_qubits = info["active_qubits"]
+    n_active = len(active_qubits)
+    pre_labels = enum_pauli_labels(n_active)
+    N = len(pre_labels)
+    n_cnot = len(info["cnot_list"])
+
+    # 檢查權重維度
+    for rec in info["cnot_list"]:
+        key = (rec["control"], rec["target"])
+        if key not in tqg_weights:
+            raise ValueError(f"Missing weights for CNOT {key}.")
+        if len(tqg_weights[key]) != N:
+            raise ValueError(f"weights[{key}] length mismatch: {len(tqg_weights[key])} != {N}")
+
+    # ====== 開始統計 ======
+    wprod_bins = Counter()
+    zero_count = 0
+
+    it = product(range(N), repeat=n_cnot)
+
+    for idx_tuple in it:
+        # 計算 w_prod
+        w_prod = 1.0
+        for j, i_lab in enumerate(idx_tuple):
+            rec = info["cnot_list"][j]
+            key = (rec["control"], rec["target"])
+            w_prod *= float(tqg_weights[key][i_lab])
+
+        # 轉換到數量級 bin
+        abs_w = abs(w_prod)
+        if abs_w == 0.0:
+            zero_count += 1
+        else:
+            bin_key = int(np.floor(-np.log10(abs_w)))
+            wprod_bins[bin_key] += 1
+            if bin_key==15:print("wprod:", w_prod, "idx_tuple:", idx_tuple)
+
+    # ====== 印出結果 ======
+    if verbose:
+        total_nonzero = sum(wprod_bins.values())
+        print("\n[ w_prod 數量級分布：bin = int(-log10(|w_prod|)) ]")
+        for k in sorted(wprod_bins):
+            cnt = wprod_bins[k]
+            ratio = cnt / total_nonzero if total_nonzero > 0 else 0
+            print(f"  order -{k+1:3d}: {cnt:8d}  ({ratio:6.2%})")
+        if zero_count > 0:
+            print(f"  w_prod == 0: {zero_count} 筆")
+
+    return wprod_bins, zero_count
+
