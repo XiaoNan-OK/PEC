@@ -1,0 +1,115 @@
+                                                                                                             (page 1)
+       Symbolic Discovery for Quantum Machine Learning Architecture
+                                                 Yu-Chao Huang
+
+1. Objectives:
+
+Employing machine learning techniques, instead of using heuristic design of quantum machine learn-
+ing architecture, to automatically and symbolically search for optimal quantum machine learning ar-
+chitecture including the following three stages: data encoding, state evolution, and measurement.
+
+2. Scope and Background:
+
+Quantum machine learning studies data and information using quantum circuits. Abbas et al.1 show
+that quantum neural networks have favorable training landscapes and achieve higher effective di-
+mensions compared to classical neural networks. However, whether quantum machine learning has
+an intrinsic advantage over classical machine learning remains an open question. Many quantum
+machine learning architectures have been proposed, including data re-upload classifiers, quantum
+Boltzmann machines, IQP classifiers, and many more. At the current stage, quantum machine learn-
+ing does not seem to surpass classical machine learning due to limited qubits and architecture design,
+which is profoundly different from that in classical machine learning (see Bowles et al.2 ). Therefore,
+inspired by the success of AutoML-Zero3 and symbolic discovery of optimizers4 , we aim to formu-
+late quantum machine learning architecture as a symbolic search space for optimal ansatz from data
+encoding ansatz, state evolution ansatz to measurement basis
+
+3. Methodology:
+
+There are three critical steps for this project: First, we need to define a search space that is broad
+enough to include both existing architectures and novel ones that have not been tested before. Sec-
+ond, we will develop a search algorithm that includes ansatz evaluation and mutation to progressively
+expand the search space in a favorable direction. Lastly, we will assess the discovered algorithms
+using a range of tests, from easy to more challenging, to ensure they do not exhibit significant gen-
+eralization gaps.
+
+4. Project Significance and Value:
+
+This project’s significance lies in its potential to revolutionize QML by providing a systematic frame-
+work for optimizing quantum circuits. By automating the discovery of optimal quantum ansatz, we can
+accelerate the development of more powerful and efficient QML models. This advancement will not
+only contribute to the theoretical understanding of QML but also pave the way for practical applica-
+tions when the emergence of fault-tolerant quantum computers. In essence, this project represents
+a crucial step towards realizing the full potential of quantum machine learning.
+
+5. Timelines and Tasks
+
+
+
+
+   1
+    Abbas, A., Sutter, D., Zoufal, C. et al. The power of quantum neural networks. Nat Comput Sci 1, 403 409 (2021).
+   2
+    Bowles, J., Ahmed, S., & Schuld, M. Better than classical? the subtle art of benchmarking quantum machine learning
+models (2024).
+  3
+    Esteban Real, Chen Liang, David So, Quoc Le. AutoML-Zero: Evolving Machine Learning Algorithms From Scratch.
+ICML’20.
+  4
+    Chen, Xiangning, et al. Symbolic discovery of optimization algorithms. NeurIPS (2024).
+
+
+                                                                                                                  /...1
+                                                                                   (page 2)
+
+
+
+
+Month       Description
+September
+               • Project Kickoff and Planning (Week 1-2)
+
+                   – Develop a detailed project plan.
+
+               • Literature Review and Research (Week 3-4)
+
+                   – Conduct an in-depth literature review on quantum machine
+                     learning architectures.
+                   – Identify key papers and methodologies.
+
+
+October
+               • Search Space Code Writing (Week 1-2)
+
+                   – Define the search space for data encoding, state evolution,
+                     and measurement ansatz.
+
+               • Search Algorithm Code Writing (Week 3-4)
+
+                   – Design a search algorithm that includes ansatz evaluation
+                     and mutation.
+                   – Conduct preliminary tests.
+
+
+November
+               • Refine and Expand Search Algorithm (Week 1-2)
+
+                   – Improve the search algorithm based on initial test results.
+
+               • Algorithm Testing and Validation (Week 3-4)
+
+                   – Evaluate the performance and generalization of discovered
+                     algorithms.
+
+
+December
+               • Comprehensive Testing and Optimization (Week 1-2)
+
+               • Organized Results and Analysis (Week 3-4)
+
+January
+               • Paper Writing and Presentation Preparation (Week 1-4)
+
+
+
+
+                                                                                       /...2
+

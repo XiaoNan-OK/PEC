@@ -1,0 +1,1799 @@
+     National Cheng Kung University
+
+    Department of Engineering Science
+
+
+
+An Automated Probabilistic Error
+
+Cancellation Package for Near-Term
+
+       Quantum Computers
+
+
+
+
+           Author: Hsiao-Nan Lu
+
+
+
+          Advisor: Hong-Bin Chen
+
+
+
+
+               July 1, 2026
+ABSTRACT (CHT)
+
+
+ABSTRACT
+
+
+   Probabilistic error cancellation (PEC) is one of the most promising quantum error-
+mitigation techniques for noisy intermediate-scale quantum devices because it can,
+in principle, remove bias induced by hardware noise without requiring full fault toler-
+ance. In practice, however, PEC is dicult to deploy: it requires noise characterization,
+quasi-probability decomposition, sampling control, and integration with quantum soft-
+ware workows. This work focuses on the design of an automated PEC package that
+translates user circuits into mitigation-ready execution pipelines, combining backend-
+aware calibration, gate-level quasi-probability construction, adaptive sampling, and
+standardized reporting.
+   The proposed package further integrates observable-level readout mitigation, Pauli-
+transfer-matrix-based channel representation, Pauli twirling for two-qubit gate noise,
+and truncation-based sampling reduction into a unied workow. Because full PEC
+execution on present-day hardware can require prohibitive circuit and sampling re-
+sources, the framework adopts a hardware-informed simulation strategy in which noise
+models extracted from IBM quantum backends are assigned to corresponding simula-
+tors. Through this design, the package provides a modular and reproducible platform
+for testing PEC under realistic noisy conditions while remaining oriented toward future
+applications on real quantum hardware.
+
+
+Keywords: quantum error mitigation, probabilistic error cancellation
+
+
+
+
+                                           -i-
+Contents
+
+
+ABSTRACT (CHT)
+
+
+  機率式誤差校正（probabilistic error cancellation, PEC）是目前雜訊量子裝置上
+最具潛力的量子誤差緩解技術之一，因為此方法在原理上可於不依賴完整容錯機制
+的情況下，消除由硬體雜訊所造成的偏差。然而，PEC 在實際應用上仍具有相當高
+的困難度，原因在於其流程同時涉及雜訊特性分析、準機率分解、取樣控制，以及
+與量子軟體工作流程的整合。
+  本研究聚焦於自動化 PEC 套件之設計，目標是將使用者輸入的量子電路轉換為
+可直接執行誤差緩解的工作流程，並整合後端感知校正、閘級準機率建構、適應性
+取樣與標準化結果輸出等功能。此外，本套件亦將「觀測量等級」的讀出誤差緩
+解、以「包立轉換矩陣」為基礎的通道表示法、針對二量子位元閘雜訊的「包立旋
+轉」，以及基於「截斷」取樣縮減策略整合為一致化的架構。
+  由於在現今量子硬體上直接完整執行 PEC 往往需要極為龐大的電路數量與取樣
+資源，因此本研究採用一種以硬體資訊為基礎的模擬策略，即先自 IBM 量子後端擷
+取雜訊模型，再將其配置至對應之模擬器中執行。透過此一設計，本套件可在維持
+真實硬體導向特性的同時，提供一個模組化且可重現的工具，用以在實際雜訊條件
+下測試 PEC 的效能，並作為未來拓展至真實量子硬體應用之基礎。
+
+
+
+
+                            -ii-
+Contents
+
+
+Contents
+
+
+ABSTRACT                                                               i
+ABSTRACT (CHT)                                                        ii
+Contents                                                             iii
+List of Figures                                                       v
+List of Tables                                                       vii
+Chapter I     Introduction                                            1
+    Introduction                                                      1
+Chapter II    Background and General Framework                        4
+    Background and General Framework                                  4
+           Basic Principle of Probabilistic Error Cancellation        4
+           Pauli Transfer Matrix Representation and Pauli Twirling    5
+           Observable-Level and Gate-Level Mitigation                 7
+           General Framework of the Proposed Package                  8
+Chapter III      Methodology of the Package                           9
+    Methodology of the Package                                        9
+           Observable-Level Probabilistic Error Cancellation          9
+           Two-Qubit Gate Probabilistic Error Cancellation           10
+Chapter IV       Automated PEC Package Architecture                  17
+    Automated PEC Package Architecture                               17
+           Overall Workow of the Package                            17
+           Readout Calibration Module                                18
+           Two-Qubit-Gate Twirling Module                            19
+           PEC Execution and Truncation Strategy                     20
+Chapter V     Benchmark Results and Analysis                         24
+    Benchmark Results and Analysis                                   24
+           Common Simulation Settings                                24
+           CNOT Benchmark                                            25
+           Bell-State Benchmark                                      28
+           Quantum-Teleportation Benchmark                           32
+           Overall Discussion                                        39
+
+                                           -iii-
+Contents
+
+
+Chapter VI   Conclusions and Future Work    40
+    Conclusions and Future Work             40
+    References                              41
+
+
+
+
+                                     -iv-
+List of Figures and Tables
+
+
+List of Figures
+
+
+   1    Illustration of the Pauli-twirling procedure. A general noisy two-qubit
+        channel is transformed into an averaged eective channel that is easier
+        to analyze in the PTM representation. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                            6
+   2    State-preparation circuit used in the observable-level readout PEC work-
+        ow. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   9
+   3    Circuit interpretation of Pauli twirling for a noisy two-qubit gate. The
+        nonphysical direct-insertion picture is reformulated into an equivalent
+        implementable construction using Cliord conjugation, and averaging
+        over the resulting circuits produces the eective twirled noisy CNOT
+        channel used in the PEC workow. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+   4    Extension of the Pauli-twirling construction to a general n-qubit gate
+        block. The Pauli operators are chosen from Pn and averaged over all
+        realizations to obtain the eective twirled channel. . . . . . . . . . . . . . . . . . . . 13
+   5    Workow of the two-qubit-gate twirling procedure, including calibration-
+        state preparation, averaging of the noisy CNOT channel, and the full
+        implementable twirling circuit. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+   6    Overall workow of the automated PEC package. A target quantum cir-
+        cuit is processed by the readout-mitigation and two-qubit-gate twirling
+        modules to generate mitigation weights, which are then passed to the
+        PEC execution and post-processing stage to reconstruct the mitigated
+        results. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+   7    ReadoutPEC Procedure . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+   8    PauliTwirlingPEC Procedure . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+   9    PauliSamplingPEC Procedure . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+   10   Cumulative quasi-probability contribution used to determine the trun-
+        cation threshold. The dominant weighting terms are retained up to
+        the chosen threshold, while the remaining low-contribution circuits are
+        pruned from execution. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+   11   Circuit structures used in the CNOT benchmark. The benchmark com-
+        pares circuits containing one, two, and three CNOT gates. . . . . . . . . . . . . 25
+   12   Post-mitigation pseudocode for the CNOT benchmark. . . . . . . . . . . . . . . . 26
+
+                                                              -v-
+List of Figures and Tables
+
+
+   13   Comparison of noisy and PEC-mitigated mean results for the CNOT
+        benchmark under four IBM-device noisy models. The dashed horizontal
+        line indicates the ideal value 1. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+   14   Circuit structure used in the Bell-state benchmark. A single Hadamard
+        gate followed by one CNOT gate prepares the entangled state used for
+        CHSH evaluation. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+   15   Post-mitigation pseudocode for the Bell-state benchmark. . . . . . . . . . . . . . 29
+   16   Numerical results for the Bell-state benchmark over 100 trials under the
+        ibm_fez noisy model executed by sim_fez. . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+   17   Numerical results for the Bell-state benchmark over 100 trials under the
+        ibm_boston noisy model executed by sim_boston. . . . . . . . . . . . . . . . . . . . 31
+   18   Circuit structure used in the quantum-teleportation benchmark. The
+        circuit contains three CNOT gates and is used to reconstruct the delity
+        between the initial state on |ψin ⟩ and the nal state on |ψout ⟩. . . . . . . . . . 32
+   19   Post-mitigation pseudocode for the quantum-teleportation benchmark. . . 33
+   20   Quantum-teleportation results over 100 trials under the ibm_fez noisy
+        model executed by sim_fez for the input amplitude vector [0.6, 0.8]. . . . . 35
+   21   Quantum-teleportation results over 100 trials under the ibm_fez noisy
+        model executed by sim_fez for the equal-superposition input state with
+                            √     √
+        amplitude vector [1/ 2, 1/ 2]. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+   22   Quantum-teleportation results over 100 trials under the ibm_boston
+        noisy model executed by sim_boston for the input amplitude vector
+        [0.6, 0.8]. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+   23   Quantum-teleportation results over 100 trials under the ibm_boston
+        noisy model executed by sim_boston for the equal-superposition input
+                                       √     √
+        state with amplitude vector [1/ 2, 1/ 2]. . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+
+
+
+
+                                                            -vi-
+List of Figures and Tables
+
+
+List of Tables
+
+
+   I    Truncation summary for the quantum-teleportation benchmark under
+        two IBM-device noisy models. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+
+
+
+
+                                                   -vii-
+Chapter I
+
+
+
+
+Chapter I
+Introduction
+I   Introduction
+
+
+    Current quantum processors remain in the noisy intermediate-scale quantum (NISQ)
+era [1], where the performance of quantum circuits is strongly limited by hardware noise
+[2]. In realistic devices, computation is aected by multiple error sources, including fab-
+rication imperfections, decoherence induced by environmental coupling, control errors,
+crosstalk between qubits, and readout noise [36]. As circuit depth increases, these
+noise sources accumulate rapidly and cause measured outputs to deviate signicantly
+from ideal theoretical predictions [7]. This noise problem is one of the main obstacles
+preventing near-term quantum devices from delivering reliable large-scale practical ad-
+vantage [8, 9].
+    To combat noise in quantum circuits, several strategies have been developed at
+dierent levels of hardware and software. One representative low-level technique is
+dynamic decoupling [10], which suppresses certain types of decoherence by inserting
+carefully designed pulse sequences during idle periods. Dynamic decoupling is useful
+for extending coherence times, but it does not provide a general solution for all gate
+and measurement errors that appear in realistic quantum computations.
+    At a more fundamental level, quantum error correction (QEC) provides a rigorous
+framework for protecting quantum information by encoding logical qubits into many
+physical qubits and actively correcting errors during computation [11]. In principle,
+QEC oers a long-term route toward fault-tolerant quantum computing. However,
+its implementation requires large hardware overhead, potentially requiring millions of
+physical qubits to run practical algorithms [12], as well as frequent syndrome extraction
+and physical error rates below the fault-tolerant threshold, all of which remain beyond
+the capability of current NISQ devices.
+    Because of these practical limitations, quantum error mitigation (QEM) has emerged
+
+                                            -1-
+Chapter I
+
+
+as an important near-term alternative [1315]. Unlike QEC, QEM does not attempt to
+fully correct errors during computation. Instead, it aims to reduce the eect of noise
+on measured observables through circuit-level processing and classical post-processing
+[1517]. This makes QEM especially attractive for present-day devices, where qubit
+numbers and delities are still limited.
+
+   Among existing QEM methods, zero-noise extrapolation (ZNE) is one of the most
+widely used because of its conceptual simplicity and relative ease of implementation.
+ZNE works by intentionally amplifying circuit noise, for example through gate folding or
+pulse stretching [18], and then extrapolating the measured values back to the zero-noise
+limit [13, 19]. Although eective in many small-scale demonstrations, ZNE becomes
+less reliable for deeper circuits, since its sampling overhead and estimation error can
+grow rapidly with circuit depth [20, 21]. Moreover, because ZNE does not explicitly
+invert the noise process, its correction capability is limited when the error structure
+becomes more complicated [22].
+
+   A more systematic mitigation strategy is probabilistic error cancellation (PEC) [23].
+In particular, Pauli-twirling-based PEC transforms a general noisy channel into an ef-
+fective Pauli channel that is easier to analyze and invert. By expressing the inverse
+noisy process as a quasi-probability expansion over Pauli operations [24], PEC enables
+unbiased estimation of ideal expectation values when the underlying noise model is suf-
+ciently accurate. Recent advances such as virtual distillation, Cliord Data Regression
+(CDR), benchmarking-oriented unied frameworks, and learning-based methods have
+further expanded this domain [2530].
+
+   Despite its theoretical appeal, PEC is still dicult to implement in practice. A
+complete PEC workow requires noise characterization, channel reconstruction, and
+statistical post-processing [31]. These steps are not only technically involved, but also
+sensitive to notation consistency, backend conguration, and sampling overhead. To
+streamline this process, existing software frameworks have laid the groundwork for
+modular QEM [32].
+
+   To address this issue, we aim to develop an automated PEC package that can
+ultimately be applied to real quantum hardware [33, 34]. The package integrates the
+major components of PEC into a unied workow, including observable-level readout
+mitigation, Pauli-twirled two-qubit gate mitigation, automated circuit transformation,
+
+                                           -2-
+Chapter II
+
+
+weighted execution, and truncation-based sampling reduction. However, because a full
+PEC evaluation on present-day hardware requires extremely large computational and
+sampling resources, directly carrying out the complete workow on physical quantum
+devices is not yet practical for the benchmark scope considered in this thesis.
+   For this reason, the present work adopts a hardware-informed simulation strategy.
+Instead of executing the full PEC pipeline directly on the physical quantum computer,
+we extract noise models from IBM quantum backends and assign them to the cor-
+responding simulators to reproduce realistic device noise during execution. With this
+design, the package remains oriented toward practical hardware applications while pro-
+viding a reproducible and resource-manageable platform for testing PEC performance
+under realistic noisy conditions. In this sense, the contribution of this work is not only
+to apply PEC, but also to provide a modular and scalable workow for studying how
+PEC can be deployed for near-term quantum computing research.
+
+
+
+
+                                           -3-
+Chapter II
+
+
+
+
+Chapter II
+Background and General Framework
+II    Background and General Framework
+
+
+     This chapter presents the theoretical framework required by the proposed automated
+PEC package. Rather than repeating the general motivation already given in Chapter
+1, the focus here is placed on the technical concepts that directly support the package
+design, including quasi-probability-based inversion [13, 23], the Pauli transfer matrix
+(PTM) representation [24], Pauli twirling [33], and the distinction between observable-
+level and gate-level mitigation. These ingredients provide the common language used
+by the class-based implementation described in the following chapter, and they also
+connect naturally to recent developments in practical QEM workows [27].
+
+
+              II.A. Basic Principle of Probabilistic Error Cancellation
+
+     The central idea of probabilistic error cancellation is to represent the inverse of a
+noisy quantum process as a linear combination of physically implementable operations.
+                                                               e . Instead of directly
+Suppose an ideal quantum circuit is aected by a noisy channel Λ
+inverting the noise by a nonphysical operation, PEC reconstructs the inverse channel
+in the form of a quasi-probability expansion,
+                                               X
+                                  e −1 (ρ) =
+                                  Λ                  qj Pbj ρPbj† ,                    (1)
+                                                j
+
+
+where {Pbj } denotes an operator basis and {qj } are quasi-probability coecients. Be-
+cause some coecients qj may be negative, they cannot be interpreted as ordinary
+probabilities. Instead, they are used to dene a randomized execution strategy to-
+gether with appropriate statistical reweighting.
+     In practice, PEC is implemented by sampling correction operations according to
+the magnitudes of the quasi-probability coecients and combining the resulting mea-
+
+                                               -4-
+Chapter II
+
+
+surement outcomes with signed weights. In this way, the average over many random-
+ized circuit executions reproduces the ideal expectation value under the assumed noise
+model. Therefore, PEC transforms the noise-mitigation problem into a combination of
+calibration, sampling, and classical post-processing [13, 23, 33].
+   The main advantage of PEC is that it can remove bias rather than merely sup-
+pressing it approximately. However, this benet comes at the cost of increased sam-
+pling overhead. The variance of the estimator generally grows with the L1 norm of
+the quasi-probability coecients, which means that accurate mitigation may require a
+large number of circuit samples. This bias-variance trade-o and the associated growth
+of statistical uctuation in error-mitigated estimators have been analyzed in Ref. [35].
+Consequently, a practical PEC framework must address not only the construction of
+the inverse channel, but also the management of sampling cost and execution eciency.
+
+
+         II.B. Pauli Transfer Matrix Representation and Pauli Twirling
+
+   To construct PEC in a form suitable for implementation, it is convenient to describe
+noisy quantum channels in the Pauli transfer matrix (PTM) representation. In this
+representation, operators are expanded in the Pauli basis, and quantum channels are
+expressed as linear transformations acting on the corresponding coecient vectors. For
+an n-qubit system, the Pauli basis is dened as
+
+                               b σ̂x , σ̂y , σ̂z }⊗n ,
+                         Pn = {I,                        |Pn | = 4n .                (2)
+
+This representation is especially useful because it provides a structured way to analyze
+noisy gates and to derive inverse maps for mitigation.
+   For real quantum devices, the noise aecting a gate operation is generally not de-
+scribed by a single simple channel. Instead, it arises from a combination of dierent
+physical error sources already discussed in the Introduction, including decoherence,
+imperfect control, crosstalk, and measurement-related errors. Depending on the hard-
+ware platform and operating condition, these eects may manifest through amplitude-
+damping noise, phase-damping noise, depolarizing noise, or coherent over-rotation er-
+rors. As a result, the eective noisy behavior of a two-qubit gate is typically compli-
+cated and cannot be characterized conveniently by only one elementary noise model.
+To obtain a tractable approximate description of such a noisy channel, this work adopts
+
+                                               -5-
+Chapter II
+
+
+the Pauli basis as an eective representation framework. In this representation, the
+complicated physical noise can be mapped to a channel description that is easier to an-
+alyze, calibrate, and invert. For the two-qubit gate errors considered in this work, a key
+simplication is obtained by applying Pauli twirling, as illustrated in Fig. 1. Through
+averaging over suitable Pauli conjugations, Pauli twirling transforms a general noisy
+channel into an eective channel that is diagonal in the PTM basis [36]. It is precisely
+this diagonal structure that allows the twirled channel to be written in the simple form
+of Eq. (3). After twirling, the eective channel becomes
+                                    h              i
+                           e PT = Ei P † Λ
+                           Λ(·)          e Pi · P † Pi ,                              (3)
+                                      i          i
+
+
+where the coecients {ck } characterize the response of the channel on each Pauli basis
+element. This diagonal structure greatly simplies inversion, because the inverse chan-
+nel can be constructed by inverting the PTM eigenvalues whenever they are nonzero.
+
+
+
+
+                           (a) A noisy two-qubit gate channel.
+
+
+
+
+                  (b) The averaged eective channel after Pauli twirling.
+
+
+   FIG. 1. Illustration of the Pauli-twirling procedure. A general noisy two-qubit
+channel is transformed into an averaged eective channel that is easier to analyze in
+                                the PTM representation.
+
+
+   The Pauli-twirled channel can equivalently be written as a Pauli channel,
+                                                n −1
+                                               4X
+                                e PT
+                                Λ      (ρ) =           αj Pbj ρPbj† ,                 (4)
+                                               j=0
+
+
+                                               -6-
+Chapter II
+
+
+where {αj } are the Pauli-channel coecients. After inversion, the corresponding quasi-
+probability representation becomes
+                                                  n −1
+                                                 4X
+                               e PT −1                   qj Pbj ρPbj† .              (5)
+                                   
+                               Λ         (ρ) =
+                                                 j=0
+
+
+The coecients {qj } are then used by the package to generate randomized correction
+circuits and to reconstruct mitigated expectation values through weighted averaging.
+   In this work, Pauli twirling plays two important roles. First, it reduces the com-
+plexity of the eective noise model, making the mitigation procedure more tractable
+for practical implementation. Second, it creates a direct connection between calibra-
+tion data and executable correction circuits, which is essential for software automation.
+For this reason, the PTM representation and Pauli-twirled inverse channel form the
+theoretical backbone of the proposed package.
+
+
+
+                II.C. Observable-Level and Gate-Level Mitigation
+
+   The automated PEC package developed in this thesis contains two complementary
+layers of mitigation. The rst layer addresses measurement-related errors at the ob-
+servable level [37]. Readout noise distorts the experimentally measured observable
+and therefore biases the nal expectation value even when the circuit dynamics are
+otherwise correct. To compensate for this eect, a calibration-based linear inver-
+sion procedure is introduced so that the noiseless observable can be reconstructed
+from experimentally accessible data. This observable-level viewpoint is also consis-
+tent with recent experimental studies of readout-error-mitigated state reconstruction
+on superconducting-qubit platforms [38].
+   The second layer addresses noise in two-qubit gate operations, especially the CNOT
+gate, which is typically one of the dominant error sources in present-day superconduct-
+ing and trapped-ion quantum devices. After characterizing the noisy gate and removing
+the ideal unitary action, the remaining error channel is twirled into an eective Pauli
+channel and then inverted through quasi-probability decomposition. This gate-level
+mitigation is the main source of PEC capability in the package.
+   These two layers serve dierent but complementary purposes. Observable-level mit-
+igation corrects measurement bias, while gate-level mitigation aims to compensate for
+
+                                            -7-
+Chapter III
+
+
+errors accumulated during circuit execution. Integrating both layers into a single work-
+ow is one of the main features of the proposed package. Rather than treating them
+as isolated correction techniques, the package organizes them into a unied mitiga-
+tion pipeline that can be executed automatically for a given user circuit and backend
+conguration.
+
+
+                II.D. General Framework of the Proposed Package
+
+  Based on the theoretical ingredients described above, the proposed package is de-
+signed as an automated workow that converts a user-dened quantum circuit into a
+mitigation-ready execution pipeline. At the conceptual level, the workow consists of
+four main stages.
+  First, the package parses the target circuit, identies the observables of interest,
+and determines which noisy components require mitigation. Second, it collects or im-
+ports calibration information, including readout characterization and two-qubit gate
+noise data. Third, it constructs the inverse maps needed for mitigation, including the
+observable-level correction model and the gate-level quasi-probability representation.
+Fourth, it generates randomized executable circuits, runs them on a simulator or back-
+end, and reconstructs the mitigated expectation values from the weighted measurement
+outcomes.
+  This framework emphasizes automation, modularity, and reproducibility. Automa-
+tion is important because PEC involves many intermediate steps that are cumbersome
+to perform manually. Modularity is necessary because dierent users may work with
+dierent circuits, observables, noise models, or backends. Reproducibility is critical
+because mitigation performance depends strongly on calibration assumptions and ex-
+ecution details. A package-oriented design therefore provides practical value beyond
+the theoretical PEC formalism itself.
+  From the perspective of this thesis, the role of the present chapter is to establish
+the physical and mathematical background behind the package. The next chapter
+then builds on this foundation and explains how these concepts are organized into the
+actual methodology of the automated PEC package, including calibration ow, circuit
+transformation, weighted sampling, and truncation-based sampling reduction.
+
+
+
+                                          -8-
+Chapter III
+
+
+
+
+Chapter III
+Methodology of the Package
+III   Methodology of the Package
+
+
+   This section describes the design of the automated probabilistic error cancellation
+(PEC) package for near-term quantum computers. The package is organized around
+four main components: observable-level readout mitigation, two-qubit gate mitigation
+based on Pauli twirling, an automated execution workow, and a truncation strategy
+for reducing sampling overhead. Together, these components convert a user-dened
+quantum circuit into a mitigation-ready pipeline that can estimate near-ideal expecta-
+tion values under realistic noise models.
+
+
+              III.A. Observable-Level Probabilistic Error Cancellation
+
+
+
+
+FIG. 2. State-preparation circuit used in the observable-level readout PEC workow.
+
+   We rst consider readout-noise mitigation at the observable level [37, 38]. In the
+Pauli transfer matrix (PTM) representation, any single-qubit observable can be ex-
+panded on the Pauli basis {σ̂0 , σ̂x , σ̂y , σ̂z }, where σ̂0 = Ib denotes the identity operator
+and σ̂x , σ̂y , and σ̂z are Pauli matrices. Due to readout noise, the experimentally realized
+observable is distorted as
+
+                              O
+                              e = ã0 Ib + ãx σ̂x + ãy σ̂y + ãz σ̂z .                    (6)
+
+Here, each coecient ãi is obtained from the HilbertSchmidt inner product
+                                     1
+                             ãi =     Tr(σ̂i O),
+                                              e        i ∈ {0, x, y, z}.                    (7)
+                                     2
+
+                                                 -9-
+Chapter III
+
+
+To remove the noise contribution, we dene the state-preparation matrix
+
+                                          Aij = ⟨σ̂i | ρj ⟩                             (8)
+
+where the set of calibration input states is chosen as {ρj } = {|0⟩ , |1⟩ , |+⟩ , |R⟩}, with
+                 √                          √
+|+⟩ = (|0⟩+|1⟩)/ 2 and |R⟩ = (|0⟩+i |1⟩)/ 2. These four states form the single-qubit
+preparation set used to construct the readout-calibration matrix.
+    Fig. 2 shows the state-preparation circuit used in the readout-PEC procedure. This
+circuit prepares the input state before the observable reconstruction and serves as the
+reference conguration for building the calibration matrix A. and the readout matrix
+
+                                          eij = ⟨σ̃j | σ̂i ⟩
+                                          B                                             (9)
+
+where ρj and σ̃j are experimentally prepared states and measured observables, respec-
+                   e consists of the expansion coecients of the noisy observables
+tively. The matrix B
+{σ̃x , σ̃y , σ̃z }. The Gram matrix
+                                            g exp = BA
+                                                    e                                  (10)
+
+characterizes the measurement response of the device. Under the assumption that
+state-preparation errors are small, the readout matrix can be obtained as
+
+                                          e = g exp A−1 .
+                                          B                                            (11)
+
+Therefore, the noiseless observable may be expanded with respect to the noisy basis
+ b σ̃x , σ̃y , σ̃z } as
+{I,
+                          b = a0 Ib + ax σ̃x + ay σ̃y + az σ̃z = ⟨O|
+                          O                                       bB e −1 .            (12)
+
+This means that, even if only noisy measurement outputs are available, the noiseless
+expectation value can still be reconstructed from the noisy raw outputs. The corrected
+coecients ai then yield the noise-mitigated expectation value
+
+                            ⟨O⟩
+                             b = a0 + ax ⟨σ̃x ⟩ + ay ⟨σ̃y ⟩ + az ⟨σ̃z ⟩.               (13)
+
+This constitutes the observable-level PEC, eectively compensating readout errors by
+linear inversion.
+
+
+                 III.B. Two-Qubit Gate Probabilistic Error Cancellation
+
+    To characterize and mitigate noise in two-qubit gates, we focus on the CNOT oper-
+                                                    eCNOT denote the experimentally
+ation, which typically dominates device errors. Let U
+
+                                                -10-
+Chapter III
+
+
+                     bCNOT the ideal one. After removing the ideal unitary action,
+implemented gate and U
+                                                            e . We then apply Pauli
+the remaining error process is described by a noisy channel Λ
+twirling so that the eective channel becomes diagonal in the PTM representation,
+which greatly simplies the construction of the inverse channel required by PEC.
+   At the implementation level, Pauli twirling for a noisy two-qubit gate requires a more
+careful interpretation than the formal channel expression alone might suggest. The
+noisy CNOT gate is described by an ideal CNOT operation together with an eective
+noise channel, but this decomposition should be understood as a mathematical model
+rather than as two independently accessible circuit elements. In particular, the noise
+        e is inferred from the noisy gate behavior and cannot be physically isolated
+channel Λ
+and manipulated as a standalone operation. As a result, a Pauli pair cannot be inserted
+directly between the ideal CNOT gate and the noise channel as if the two parts were
+separately realizable in the circuit.
+   This implementation issue is illustrated in Fig. 3(a). The formal decomposition of
+a noisy CNOT into an ideal CNOT gate and an eective noise channel is useful for
+analysis, but it does not imply that a Pauli pair can be inserted physically between these
+two components. To obtain an implementable construction, the Pauli operator must
+be moved across the ideal CNOT gate by Cliord conjugation, as shown in Fig. 3(b). If
+Pbj denotes the Pauli operator associated with the twirling step, then the transformed
+operator is written as
+                                     ′
+                                   Pbj = U         b†
+                                         bCNOT Pbj U                                 (14)
+                                                    CNOT .
+
+
+That is, the conjugated operator U         b†                  b′
+                                            CNOT is denoted by Pj . Because the CNOT
+                                 bCNOT Pbj U
+                                                              ′
+gate belongs to the Cliord group, the transformed operator Pbj remains within the
+Pauli group and can still be expressed as a tensor product of single-qubit Pauli opera-
+tors. This property makes it possible to replace the infeasible direct-insertion picture
+by an equivalent circuit-level construction in which the twirling operators are imple-
+mented before and after the CNOT gate in a physically accessible manner.
+   More generally, the Pauli basis should be chosen on the full qubit support of the
+gate block being mitigated. If the eective noisy block spans n qubits, we dene
+
+                                b σ̂x , σ̂y , σ̂z }⊗n ,
+                          Pn = {I,                        |Pn | = 4n .               (15)
+
+which is illustrated in Fig. 4.
+
+                                               -11-
+Chapter III
+
+
+
+
+               (a) A formal decomposition of a noisy CNOT into an ideal
+               CNOT and a noise channel suggests inserting a Pauli pair
+                    between them, but this operation is not directly
+                    implementable because the noise channel is not
+                               independently accessible.
+
+
+
+
+               (b) An implementable Pauli-twirling construction obtained
+               by conjugating the Pauli operator through the ideal CNOT
+                 gate and replacing it with the transformed Pauli pair.
+
+
+
+
+               (c) Eective noisy CNOT channel after averaging over the
+                       implementable Pauli-twirled realizations.
+
+
+   FIG. 3. Circuit interpretation of Pauli twirling for a noisy two-qubit gate. The
+nonphysical direct-insertion picture is reformulated into an equivalent implementable
+  construction using Cliord conjugation, and averaging over the resulting circuits
+   produces the eective twirled noisy CNOT channel used in the PEC workow.
+
+
+
+
+                                         -12-
+Chapter III
+
+
+
+
+FIG. 4. Extension of the Pauli-twirling construction to a general n-qubit gate block.
+The Pauli operators are chosen from Pn and averaged over all realizations to obtain
+                             the eective twirled channel.
+
+
+   With this reformulation, Pauli twirling is no longer viewed as an insertion into an
+inaccessible internal decomposition of the noisy gate. Instead, it is expressed as a
+circuit-level transformation based on Pauli conjugation around the CNOT gate, fol-
+lowed by averaging over the resulting realizations. The eective noisy CNOT channel
+obtained in Fig. 3(c) is the channel representation used in the subsequent PEC con-
+struction.
+   Using gate set tomography (GST), the experimental realization associated with the
+j th Pauli-twirled circuit can be written as
+
+                                       e Pb′ † U
+                               gjexp = B       bPTM Λe Pbj A.                       (16)
+                                           j    CNOT
+
+
+Therefore, each individual twirled realization can be extracted according to
+                               ′
+                             Pbj † U
+                                   bPTM Λ
+                                    CNOT
+                                                 e −1 g exp A−1 .
+                                         e Pbj = B
+                                                       j                            (17)
+
+The ideal CNOT in the PTM representation is
+                              1 hb b             †
+                                                    i
+                      b PTM
+                      UCNOT = n Tr Pa UCNOT Pb UCNOT .
+                                            b  b                                    (18)
+                              2
+Here, Pba , Pbb ∈ Pn . Let P denote the set of sampled n-qubit Pauli operators. Averaging
+over all realizations gives the twirled noisy CNOT gate,
+                                       1 X b′ † b P T M e b
+                         U P T M e PT
+                         bCNOT   Λ =        P U         Λ Pj ,                      (19)
+                                      |P| j j CNOT
+
+and hence the Pauli-twirled noise channel is obtained as
+                                                                    !
+                          1  b P T M −1 X b′ † b P T M e b
+                    e PT
+                    Λ =      UCNOT          Pj UCNOT Λ Pj               .           (20)
+                         |P|              j
+
+
+                                            -13-
+Chapter III
+
+
+The above twirling construction is summarized in Fig 5.
+   The resulting twirled channel can be written in the Pauli-channel form already
+introduced in Eq. (4),
+                                               n −1
+                                              4X
+                                 e PT (ρ) =
+                                 Λ                    αj Pbj ρPbj† .
+                                              j=0
+
+
+                     e PT takes the diagonal expansion already introduced in Eq. (3),
+   In the PTM basis, Λ
+                                       h              i
+                              e PT = Ei P † Λ
+                              Λ             e Pi · P † Pi .
+                                         i          i
+
+
+
+with ck the PTM eigenvalue associated with the k th n-qubit Pauli basis element, where
+Pbj ∈ Pn and αj are the Pauli-channel coecients.
+   The diagonal PTM coecients {ck } and the Pauli-channel coecients {αj } are
+related by a linear transform. Dening
+                                                                    
+                                c0                     α0 
+                                                             
+                                c1                     α1 
+                                ..  ,
+                             C=       
+                                                         ..  ,
+                                                      A=                       (21)
+                                .                      . 
+                                                             
+                                c4n −1                   α4n −1
+
+we have
+
+                                C = T A,         A = T −1 C,                     (22)
+
+where T is the ±1 sign matrix determined by Pauli commutation relations. Its entries
+satisfy
+                                      
+                                      1,
+                                      
+                                               Pbk Pbj = Pbj Pbk ,
+                              Tkj =                                              (23)
+                                      −1, Pbk Pbj = −Pbj Pbk .
+                                      
+
+In matrix form, Eq. (22) is
+                                                                      
+                          c0   1 ±1 · · · ±1  α0 
+                          c1  ±1 1 · · · ±1  α1 
+                                                       
+                          ..   .. .. . . ..   ..  .
+                                =                                          (24)
+                          .   . .          . .  . 
+                                                       
+                          c4n −1    ±1 ±1 · · · 1    α4n −1
+
+   To construct the inverse channel, we rst invert the diagonal PTM representation.
+
+                                              -14-
+Chapter III
+
+
+Assuming ck ̸= 0 for all k ,
+                                                                    
+                                                1/c0 
+                                                        
+                                    −1         1/c1 
+                               Λ (ρ)
+                               e PT         −1
+                                        ←→ C =  . 
+                                               
+                                                         .                     (25)
+                                                .. 
+                                                        
+                                                1/c4n −1
+
+Transforming back to the Pauli-channel representation gives the quasi-probability co-
+ecients                                                      
+                                  q0         1/c0 
+                                                    
+                                  q1         1/c1 
+                               Q=        −1
+                                  ..  = T  ..  ,
+                                                                              (26)
+                                  .          . 
+                                                    
+                                  q4 −1
+                                    n          1/c4 −1
+                                                   n
+
+
+so that the inverse Pauli-twirled channel used in PEC is
+                                                 −1
+                                                4X n
+
+                                    PT −1
+                                                    qj Pbj ρPbj† .              (27)
+                                      
+                                  Λ
+                                  e       (ρ) =
+                                                  j=0
+
+
+The coecients {qj } are generally not positive, which is why they are interpreted as
+quasi-probabilities rather than ordinary probabilities. These weights are the quanti-
+ties used by the package to generate randomized correction circuits and to reweight
+measured outcomes during post-processing.
+
+
+
+
+                                               -15-
+Chapter IV
+
+
+
+
+             (a) Two-qubit state-preparation circuit used for calibration of the
+                                     twirled gate model.
+
+
+
+
+             (b) Averaged noisy CNOT channel obtained after summing over all
+                          implementable Pauli-twirled realizations.
+
+
+
+
+             (c) Full circuit-level implementation of Pauli twirling for the target
+                                        two-qubit gate.
+
+
+FIG. 5. Workow of the two-qubit-gate twirling procedure, including calibration-state
+   preparation, averaging of the noisy CNOT channel, and the full implementable
+                                       twirling circuit.
+
+
+
+
+                                             -16-
+Chapter IV
+
+
+
+
+Chapter IV
+Automated PEC Package Architecture
+IV   Automated PEC Package Architecture
+
+
+  This chapter describes how the proposed probabilistic error cancellation package
+is organized into an automated software workow. While the previous chapter fo-
+cuses on the theoretical construction of observable-level and two-qubit-gate PEC, the
+present chapter explains how these components are implemented and connected in
+the package. The class-based design separates the mitigation procedure into readout
+calibration, two-qubit-gate characterization, PEC execution, and example-dependent
+post-processing, so that each stage can be reused across dierent benchmark circuits.
+The overall package workow is illustrated in Fig. 6.
+
+
+
+                     IV.A. Overall Workow of the Package
+
+  The package starts from an arbitrary user-dened quantum circuit and automati-
+cally identies the information required for mitigation. In the current implementation,
+the workow is divided into three main computational modules, namely ReadoutPEC,
+PauliTwirlingPEC, and PauliSamplingPEC. The rst module generates readout-
+mitigation weights for the active qubits appearing in the target circuit. The second
+module characterizes the noisy two-qubit gates in the circuit and constructs the cor-
+responding Pauli-twirled inverse weights. The third module combines these calibrated
+weights with the target circuit and evaluates the PEC-corrected expectation values of
+the required observables.
+  In practical usage, the main program or notebook rst passes the target circuit
+to the readout-calibration module.    The readout-mitigation data returned by this
+module are then used together with the twirled two-qubit-gate matrices generated by
+PauliTwirlingPEC. After both sets of weights have been obtained, PauliSamplingPEC
+
+                                         -17-
+Chapter IV
+
+
+
+
+FIG. 6. Overall workow of the automated PEC package. A target quantum circuit is
+processed by the readout-mitigation and two-qubit-gate twirling modules to generate
+mitigation weights, which are then passed to the PEC execution and post-processing
+                      stage to reconstruct the mitigated results.
+
+
+constructs the corresponding PEC circuits, executes all retained weighted realizations,
+and returns the mitigated expectation values.       Finally, the example-specic post-
+processing scripts convert these expectation values into the nal quantities of interest,
+such as CHSH values for Bell-state preparation or delities for quantum teleportation.
+
+
+
+                        IV.B. Readout Calibration Module
+
+   The readout-calibration module is implemented by the ReadoutPEC class. Given
+a target circuit, the module rst detects the active qubits involved in the computa-
+tion, excluding measurement-only qubits. It then generates the complete calibration
+input set on the active subsystem by preparing tensor-product states from the set
+{|0⟩ , |1⟩ , |+⟩ , |R⟩}. For the same active subsystem, the module also constructs all
+
+                                          -18-
+Chapter IV
+
+
+Pauli-basis measurement settings required to estimate the noisy observable basis.
+      For each preparation-measurement conguration, a calibration circuit is generated
+and executed through the sampler backend. The measured expectation values are
+collected into the matrix G, which is then reshaped into a 4k × 4k form for a k -qubit
+active subsystem. Using the predened ideal matrix A, the noisy observable matrix B
+is obtained according to Eq. (11). The inverse of B is subsequently used to construct
+the readout-mitigation weights associated with each Pauli observable. In this way,
+the module returns not only the calibrated readout weights but also the active-qubit
+indices and the associated matrices needed for later PEC processing. The corresponding
+readout-calibration procedure is summarized in Fig. 7.
+
+                              FIG. 7. ReadoutPEC Procedure
+
+Require: Target circuit C , sampler, backend, shots
+Ensure: Active qubits, matrices G, A, and B , and readout weights
+ 1: Detect the active qubits in C
+
+ 2: Generate tensor-product calibration states from {|0⟩ , |1⟩ , |+⟩ , |R⟩}
+
+ 3: Generate all Pauli-basis measurement settings on the active subsystem
+
+ 4: for each preparation-measurement conguration do
+
+ 5:      Build the corresponding calibration circuit
+ 6:      Execute the circuit with the sampler backend
+ 7:      Record the measured expectation value
+ 8: end for
+
+ 9: Assemble the measured data into the matrix G
+
+10: Construct the ideal matrix A
+
+11: Compute the noisy observable matrix B according to Eq. (11)
+
+12: Construct the readout weights from B −1
+
+13: return active qubits, G, A, B , and the readout weights
+
+
+
+
+                        IV.C. Two-Qubit-Gate Twirling Module
+
+      The two-qubit-gate characterization module is implemented by the class Pauli-
+TwirlingPEC. This module scans the target circuit and extracts all distinct CNOT
+
+                                              -19-
+Chapter IV
+
+
+congurations appearing in the active subsystem. For each CNOT type, the module
+builds a family of Pauli-twirled circuits by combining three ingredients: the chosen
+calibration input state, a pre-CNOT Pauli layer, and the conjugated post-CNOT Pauli
+layer implied by Cliord propagation.
+  More specically, for each initial state and each Pauli twirling label, the module
+constructs the corresponding twirled circuit and evaluates its expectation values over
+the complete Pauli observable basis. The resulting data are assembled into a matrix
+representation of the noisy two-qubit gate. After averaging over all Pauli-twirled real-
+izations, the module converts the measured matrix into the Pauli-twirled noisy-channel
+representation by using the readout-correction matrix B and the ideal preparation ma-
+trix. The resulting diagonalized eective channel is then used to compute the inverse
+quasi-probability weights required for PEC execution.
+  An important feature of this implementation is that the module stores the character-
+ized two-qubit-gate information by CNOT key, namely by the physical control-target
+pair (c, t). This allows the same package to process circuits containing multiple CNOT
+gates of the same type without recalibrating them repeatedly. It also makes the work-
+ow compatible with larger benchmark circuits in which the same entangling gate pat-
+tern appears more than once. The corresponding twirling-based weight-construction
+procedure is summarized in Fig. 8.
+
+
+                 IV.D. PEC Execution and Truncation Strategy
+
+  The PEC execution stage is implemented by the PauliSamplingPEC class. After
+receiving the target circuit together with the precomputed readout and two-qubit-gate
+weights, the module rst analyzes the circuit structure and records all active qubits
+and all CNOT positions. It then enumerates the Pauli labels corresponding to the
+twirled realizations of the selected CNOT gates and builds the full set of weighted
+PEC circuits.
+  In the present implementation, the package evaluates all circuits corresponding to
+the generated weighting combinations. For each weighting term, the module inserts
+the appropriate pre- and post-CNOT Pauli layers into the target circuit, constructs
+the required measurement circuits for the requested observables, and accumulates the
+weighted expectation values returned by the sampler backend. Therefore, the mitigated
+
+                                          -20-
+Chapter IV
+
+
+                            FIG. 8. PauliTwirlingPEC Procedure
+
+Require: Target circuit C , sampler, readout matrix B
+Ensure: Inverse twirled two-qubit-gate weights for each CNOT key
+ 1: Detect the active qubits and identify all distinct CNOT keys in C
+
+ 2: for each CNOT key (c, t) do
+
+ 3:      Generate the calibration input states on the active subsystem
+ 4:      Generate all Pauli twirling labels
+ 5:      for each input state and twirling label do
+ 6:         Build the pre-CNOT Pauli layer and its conjugated post-CNOT Pauli layer
+ 7:         Construct the twirled calibration circuit
+ 8:         Measure the full Pauli observable basis
+ 9:      end for
+10:      Assemble the measured data into the noisy two-qubit-gate matrix
+11:      Average over all Pauli-twirled realizations
+12:      Convert the averaged matrix into the Pauli-twirled channel using B −1 , A−1
+13:      Compute the inverse quasi-probability weights for the CNOT key
+14: end for
+
+15: return the inverse weights indexed by the physical CNOT pairs
+
+
+result is obtained by a deterministic weighted sum over all retained PEC realizations.
+If a circuit contains m twirled two-qubit gates, acts on an active subsystem of k qubits,
+and requires Nobs target observables, then the full PEC execution count is given by
+                                                        m
+                                      Ncirc = Nobs 4k        .                         (28)
+
+This follows from the fact that each twirled gate introduces 4k Pauli-label realizations
+on the active subsystem, and this weighting expansion must be repeated for every target
+observable. The corresponding PEC execution procedure is summarized in Fig. 9.
+      To reduce the execution cost for circuits with many weighted realizations, an op-
+tional truncation strategy is provided. Since the quasi-probability weighting terms can
+be negative, the pruning criterion is not applied directly to the signed weighting val-
+ues. Instead, the package rst enumerates all weighting combinations, evaluates the
+corresponding combined weighting terms, and then takes their absolute values. These
+
+                                               -21-
+Chapter IV
+
+
+                           FIG. 9. PauliSamplingPEC Procedure
+
+Require: Target circuit C , target observables, readout weights, twirled two-qubit-gate
+      weights
+Ensure: PEC-corrected observable expectation values
+ 1: Analyze C to identify the active qubits and the CNOT list
+
+ 2: Enumerate the Pauli labels associated with the twirled CNOT realizations
+
+ 3: if truncation is enabled then
+
+ 4:      Sort the weighting products by absolute magnitude
+ 5:      Retain the dominant subset whose cumulative contribution exceeds the threshold
+ 6: else
+
+ 7:      Keep all weighting combinations
+ 8: end if
+
+ 9: for each retained weighting combination do
+
+10:      Insert the corresponding pre- and post-CNOT Pauli layers into C
+11:      for each target observable do
+12:          Construct the corresponding measurement circuit
+13:          Execute the circuit with the sampler backend
+14:          Accumulate the weighted observable contribution
+15:      end for
+16: end for
+
+17: Target observables are reconstructed using readout weights.
+
+18: return the PEC-corrected observable expectation values
+
+
+
+absolute weighting values are normalized by the total absolute weight          k |wk |, so that
+                                                                           P
+
+the cumulative contribution can be interpreted as a fraction of the full PEC over-
+head. After this normalization step, the retained subset is determined by a prescribed
+threshold.
+
+      The cumulative contribution used in this pruning step is illustrated in Fig. 10. In
+this gure, the horizontal axis denotes the absolute weighting values sorted from small
+to large, and the vertical axis denotes the remaining normalized contribution, 1 −
+cumsum(|w|)/ |w|. Therefore, the curve decreases from 1 to 0 as increasingly larger
+              P
+
+
+                                             -22-
+Chapter V
+
+
+weighting terms are included. The vertical dividing line drawn from the marked point
+separates the weighting set into two parts: the weightings on the left-hand side belong
+to the truncated region and are pruned from execution, while the weightings on the
+right-hand side are retained for circuit execution. In the present teleportation setting,
+a threshold of 99% is adopted, so that the retained subset accounts for the dominant
+contribution of the full weighting expansion while the negligible-weight circuits are
+removed before execution.
+
+
+
+
+FIG. 10. Cumulative quasi-probability contribution used to determine the truncation
+ threshold. The dominant weighting terms are retained up to the chosen threshold,
+      while the remaining low-contribution circuits are pruned from execution.
+
+
+
+
+                                          -23-
+Chapter V
+
+
+
+
+Chapter V
+Benchmark Results and Analysis
+V    Benchmark Results and Analysis
+
+
+    This chapter presents the benchmark circuits, evaluation settings, and numerical
+results used to validate the proposed automated PEC package. In this work, three rep-
+resentative examples are considered: a CNOT benchmark with dierent gate counts,
+a Bell-state benchmark evaluated through the ClauserHorneShimonyHolt (CHSH)
+quantity, and a quantum-teleportation benchmark evaluated through state delity.
+These examples provide a progressively more demanding test of the automation ow,
+from direct gate-level behavior to entanglement-based observables and nally to a
+multi-stage communication circuit.
+
+
+
+
+                        V.A. Common Simulation Settings
+
+    Unless otherwise specied, all benchmarks are executed with 1024 shots per circuit
+evaluation and repeated over 100 trials. The noisy execution environment is built from
+the noisy model of IBMQ devices and run through the Aer simulator together with
+the Sampler interface. These common settings are used across the three examples
+so that the dierences in mitigation behavior mainly reect the circuit structure and
+the associated post-processing task rather than changes in backend conguration. In
+all three examples, the main driver rst invokes the readout-mitigation module to
+construct observable-level weights, then calls the Pauli-twirling module to compute the
+CNOT-dependent gate weights, and nally passes these weights to the PEC execution
+stage. The example-specic post-processing code subsequently converts the corrected
+observable-basis outputs into the target benchmark metric.
+
+                                         -24-
+Chapter V
+
+
+                             V.B. CNOT Benchmark
+
+   The rst benchmark studies circuits containing one, two, and three CNOT gates.
+The purpose of this example is to compare how noise accumulates as the number of en-
+tangling gates increases and how PEC compensates the resulting bias. Since the class-
+based package explicitly constructs Pauli-twirling weights for the CNOT gates detected
+in the circuit, this benchmark provides the most direct validation of the twirling-based
+mitigation module. The circuit structures used in this benchmark are shown in Fig. 11,
+and the corresponding post-mitigation procedure is summarized in Fig. 12. For this
+two-qubit benchmark, the active subsystem contains k = 2 qubits and the full Pauli
+basis contains Nobs = 16 observables. Therefore, Eq. (28) gives 256, 4096, and 65536
+PEC circuits for the one-, two-, and three-CNOT cases, respectively. No truncation is
+applied in this case.
+
+
+  q0        •           q0        •                   q0        •              •
+  q1                    q1               •            q1                •
+       1CNOT                   2CNOT                             3CNOT
+FIG. 11. Circuit structures used in the CNOT benchmark. The benchmark compares
+                 circuits containing one, two, and three CNOT gates.
+
+
+   Figs. 13a13d summarize the CNOT benchmark using four noise models extracted
+from the IBM backends ibm_fez, ibm_boston, ibm_miami, and ibm_pittsburgh.
+These backend-specic noise models are then assigned to the corresponding simulators
+sim_fez, sim_boston, sim_miami, and sim_pittsburgh for execution. In each case,
+the benchmark compares the mean result of the noisy circuit and the PEC-mitigated
+circuit for one, two, and three CNOT gates against the ideal value 1.
+   This benchmark directly reects the eectiveness of the two-qubit gate mitigation
+module. In this example, the post-processing stage compares the corrected observable-
+basis outputs with the corresponding noisy results across circuits containing dierent
+numbers of CNOT gates. A common feature in Figs. 13a13d is that the PEC-mitigated
+mean values remain closer to the ideal value 1 than the corresponding noisy results.
+This indicates that the proposed package eectively compensates the accumulated gate-
+
+                                          -25-
+Chapter V
+
+
+             FIG. 12. Post-mitigation pseudocode for the CNOT benchmark.
+
+Require: Mitigated observable-basis outputs for 1-, 2-, and 3-CNOT circuits
+Ensure: CNOT benchmark comparison result
+ 1: for each CNOT circuit instance do
+
+ 2:      collect the PEC-corrected observable outputs
+ 3:      collect the corresponding noisy outputs
+ 4:      reconstruct the benchmark quantity from the corrected observables
+ 5:      reconstruct the same quantity from the noisy observables
+ 6: end for
+
+ 7: compare the corrected and noisy results across the three circuits
+
+
+level noise in circuits with repeated CNOT operations.
+      The detailed device-dependent trend is not identical in all four cases, but the same
+mitigation eect is observed consistently: after applying the Pauli-twirling-based PEC
+correction, the output is shifted toward the ideal target behavior. Therefore, the CNOT
+benchmark supports the claim that the proposed package is not tied to a single noisy
+backend, but can be applied to dierent IBM-device noisy models while preserving the
+same mitigation logic.
+
+
+
+
+                                             -26-
+Chapter V
+
+
+
+
+              (a) sim_fez                             (b) sim_boston
+
+
+
+
+             (c) sim_miami                           (d) sim_pittsburgh
+
+
+   FIG. 13. Comparison of noisy and PEC-mitigated mean results for the CNOT
+benchmark under four IBM-device noisy models. The dashed horizontal line indicates
+                                the ideal value 1.
+
+
+
+
+                                       -27-
+Chapter V
+
+
+                           V.C. Bell-State Benchmark
+
+  The second benchmark considers Bell-state preparation as a single-CNOT applica-
+tion example. After the Bell state is generated, the nal correlations are evaluated
+through the CHSH quantity. This benchmark is useful because it shows how the pack-
+age output is not limited to raw observable expectation values. Instead, the mitigated
+Pauli-basis results are further converted by the example-specic post-processing code
+into a physically meaningful correlation metric. The Bell-state preparation circuit is
+shown in Fig. 14, and the corresponding post-mitigation procedure is summarized in
+Fig. 15. In this case, the active subsystem again contains k = 2 qubits and the PEC
+stage evaluates the full two-qubit Pauli basis with Nobs = 16. Since the Bell-state
+circuit contains one twirled CNOT gate, Eq. (28) gives a total of 256 PEC circuits for
+each complete Bell-state evaluation. No truncation is applied in this example.
+
+
+                            q0          H         •
+                            q1
+FIG. 14. Circuit structure used in the Bell-state benchmark. A single Hadamard gate
+followed by one CNOT gate prepares the entangled state used for CHSH evaluation.
+
+
+  Figs 16a and 16b present the latest available ibm_fez dataset with 100 trials, while
+Figs. 17a and 17b show the corresponding ibm_boston results.
+  This example highlights an important property of the package architecture. The
+PEC engine itself returns mitigated expectation values on the observable basis, while
+the post-processing stage combines the corrected Pauli-basis outputs into the CHSH
+correlators and the nal CHSH score. As a result, the same mitigation pipeline can
+support application-level observables without changing the internal class structure.
+  Figs. 16a17b verify that the proposed PEC package can be applied to the same
+Bell-state benchmark using noise models extracted from the IBM backends ibm_fez
+and ibm_boston. These noise models are also executed through the corresponding
+simulators sim_fez and sim_boston rather than on the hardware backends directly.
+In both cases, the PEC-mitigated CHSH values are consistently closer to the ideal
+
+                                         -28-
+Chapter V
+
+
+         FIG. 15. Post-mitigation pseudocode for the Bell-state benchmark.
+
+Require: PEC-corrected Pauli-basis expectation values for the Bell-state circuit
+Ensure: Final CHSH value
+ 1: extract the corrected correlators required for CHSH evaluation
+
+ 2: compute the four CHSH correlation terms from the corrected observables
+
+ 3: combine these terms into the CHSH quantity S
+
+ 4: repeat the same procedure for the noisy outputs
+
+ 5: compare the mitigated and noisy CHSH values
+
+
+value than the corresponding No-PEC results, showing that the package improves the
+observed nonclassical correlation of the noisy Bell-state circuit.
+   The improvement is clearly visible in both the trial-by-trial plots and the corre-
+sponding distributions. For the ibm_fez noisy model, the mean CHSH value is in-
+creased from 2.500 to 3.014, while for the ibm_boston noisy model it is increased from
+2.769 to 2.861. These results show that the package is able to recover the correlation
+suppressed by device noise, rather than being tailored to only one specic backend.
+   At the same time, the Gaussian distribution of the PEC results is broader than that
+of the corresponding No-PEC results. This trend is again consistent with the theoretical
+behavior of probabilistic error cancellation: the quasi-probability reweighting reduces
+the bias of the noisy estimate and improves the mean CHSH value, but it also amplies
+the statistical uctuation of the mitigated estimator [35, 39]. This eect is reected in
+the larger standard deviations of the PEC results, namely 0.037 versus 0.029 for the
+sim_fez case and 0.016 versus 0.012 for the sim_boston case.
+   Taken together, the Bell-state benchmark shows that the proposed PEC package
+improves the CHSH performance of noisy Bell-state circuits across dierent device-
+noise models, while still exhibiting the expected increase in variance that accompanies
+probabilistic error cancellation.
+
+
+
+
+                                           -29-
+Chapter V
+
+
+
+
+                         (a) Trial-by-trial CHSH comparison
+
+
+
+
+                          (b) Distribution of CHSH values.
+
+
+ FIG. 16. Numerical results for the Bell-state benchmark over 100 trials under the
+                    ibm_fez noisy model executed by sim_fez.
+
+
+
+
+                                        -30-
+Chapter V
+
+
+
+
+                         (a) Trial-by-trial CHSH comparison
+
+
+
+
+                          (b) Distribution of CHSH values.
+
+
+ FIG. 17. Numerical results for the Bell-state benchmark over 100 trials under the
+                ibm_boston noisy model executed by sim_boston.
+
+
+
+
+                                        -31-
+Chapter V
+
+
+                      V.D. Quantum-Teleportation Benchmark
+
+   The third benchmark considers a teleportation circuit containing three CNOT gates.
+In this example, the nal performance metric is the delity between the input state on
+qubit q0 and the reconstructed nal state on qubit q2 . Two input-state settings are con-
+sidered, namely the amplitude vector [0.6, 0.8] and the equal-superposition input state
+                         √     √
+with amplitude vector [1/ 2, 1/ 2]. The teleportation circuit used in this benchmark
+is shown in Fig. 18, and the corresponding post-mitigation procedure is summarized in
+Fig. 19. Because this benchmark contains the largest number of CNOT gates among
+the chosen examples, it is also the main case in which truncation is used. The current
+teleportation evaluation adopts a truncation threshold of 0.99.
+
+
+         q0     |ψin ⟩             •     H                   •
+
+         q1       H         •                       •
+
+         q2                                             H          H      |ψout ⟩
+
+FIG. 18. Circuit structure used in the quantum-teleportation benchmark. The circuit
+contains three CNOT gates and is used to reconstruct the delity between the initial
+                         state on |ψin ⟩ and the nal state on |ψout ⟩.
+
+
+   For the teleportation benchmark, the post-processing stage converts the mitigated
+observable-basis outputs into the nal state information required for delity evaluation.
+More specically, the corrected measurement results are used to reconstruct the output-
+state observables on qubit q2 , which are then compared with the initialized input state
+on qubit q0 to obtain the teleportation delity under noisy and mitigated execution.
+Here the active subsystem contains k = 3 qubits, the full three-qubit Pauli basis
+contains Nobs = 64 observables, and the circuit involves m = 3 twirled CNOT gates.
+Therefore, Eq. (28) gives 644 PEC circuits for one complete teleportation evaluation,
+that is, 262144 weighted realizations for each target observable and 16777216 circuits
+in total for the full observable set.
+   Because the full PEC expansion of the teleportation benchmark is computationally
+expensive, a truncation procedure is introduced before execution. Table I summarizes
+
+                                             -32-
+Chapter V
+
+
+  FIG. 19. Post-mitigation pseudocode for the quantum-teleportation benchmark.
+
+Require: PEC-corrected observable-basis outputs for the teleportation circuit
+Ensure: Teleportation delity
+ 1: extract the corrected observables associated with the output qubit q2
+
+ 2: reconstruct the mitigated output-state information from these observables
+
+ 3: form the output-state representation of the teleported qubit
+
+ 4: compare the reconstructed output state with the initialized input state on |ψin ⟩
+
+ 5: compute the teleportation delity
+
+ 6: repeat the same reconstruction for the noisy outputs
+
+ 7: compare the mitigated and noisy delities
+
+
+the corresponding truncation data.
+
+TABLE I. Truncation summary for the quantum-teleportation benchmark under two
+                                IBM-device noisy models.
+
+
+Device        Twirled CNOTs Total circuits Threshold Retained circuits Retained ratio
+
+sim_fez               3           16777216          0.99        2719872           16.21%
+sim_boston            3           16777216          0.99        580544            3.46%
+
+
+   The table shows that, under the same threshold, the retained circuit count can still
+vary signicantly depending on the underlying noisy model. This indicates that the
+truncation behavior is determined not only by the circuit structure itself, but also by the
+weight distribution induced by the device-specic noisy model. In particular, a larger
+noise level generally leads to a more diverse set of circuit types that must be sampled
+in order to preserve the dominant quasi-probability contribution. As a result, the
+number of retained circuits also increases, which in turn requires more computational
+and sampling resources during execution.
+   To examine the device-independence of the proposed PEC package, the same telepor-
+tation workow is evaluated using two noise models extracted from the IBM backends
+ibm_fez and ibm_boston, with the corresponding simulations carried out on sim_fez
+and sim_boston. The resulting data are shown in Figs. 2023. For each simulator
+setting, two input-state settings are considered under the same benchmark circuit.
+
+                                             -33-
+Chapter V
+
+
+   A common feature in all four gures is that the PEC-mitigated mean delity is
+closer to the ideal value 1 than the corresponding No-PEC result. This shows that
+the proposed PEC package consistently mitigates the noisy teleportation circuit and
+improves the accuracy of the reconstructed output state. In other words, the benet of
+the package is observed not only for one particular input state or one particular device
+model, but across all four teleportation cases considered here.
+   Another common feature is that the Gaussian distribution of the PEC results is
+broader than that of the corresponding No-PEC results. This behavior is consistent
+with the theoretical expectation of probabilistic error cancellation [35, 39]. The quasi-
+probability reweighting suppresses the bias of the noisy result and moves the mean
+delity toward the ideal value, but it also amplies the statistical uctuation of the
+estimator. Therefore, the PEC results become more accurate in their mean value while
+also exhibiting a larger variance.
+   Taken together, these teleportation results demonstrate two important points. In
+addition, the device-dependent truncation behavior is compatible with the broader
+practical-QEM picture reported in recent mitigation studies, where noise structure and
+mitigation overhead jointly determine the nal execution cost [30, 35, 40].. First, the
+proposed PEC package can eectively improve noisy-circuit results for the teleportation
+task. Second, the same class-based mitigation workow remains valid across dierent
+IBM-device noisy models, which supports the general applicability of the package rather
+than a device-specic tuning to a single backend.
+
+
+
+
+                                          -34-
+Chapter V
+
+
+
+
+                       (a) Trial-by-trial teleportation delity.
+
+
+
+
+                      (b) Distribution of teleportation delity.
+
+
+  FIG. 20. Quantum-teleportation results over 100 trials under the ibm_fez noisy
+       model executed by sim_fez for the input amplitude vector [0.6, 0.8].
+
+
+
+
+                                         -35-
+Chapter V
+
+
+
+
+                       (a) Trial-by-trial teleportation delity.
+
+
+
+
+                      (b) Distribution of teleportation delity.
+
+
+  FIG. 21. Quantum-teleportation results over 100 trials under the ibm_fez noisy
+ model executed by sim_fez for the equal-superposition input state with amplitude
+                                        √     √
+                              vector [1/ 2, 1/ 2].
+
+
+
+
+                                         -36-
+Chapter V
+
+
+
+
+                       (a) Trial-by-trial teleportation delity.
+
+
+
+
+                      (b) Distribution of teleportation delity.
+
+
+FIG. 22. Quantum-teleportation results over 100 trials under the ibm_boston noisy
+     model executed by sim_boston for the input amplitude vector [0.6, 0.8].
+
+
+
+
+                                         -37-
+Chapter V
+
+
+
+
+                       (a) Trial-by-trial teleportation delity.
+
+
+
+
+                      (b) Distribution of teleportation delity.
+
+
+FIG. 23. Quantum-teleportation results over 100 trials under the ibm_boston noisy
+    model executed by sim_boston for the equal-superposition input state with
+                                             √     √
+                         amplitude vector [1/ 2, 1/ 2].
+
+
+
+
+                                         -38-
+Chapter VI
+
+
+                              V.E. Overall Discussion
+
+   Taken together, the three benchmarks show that the proposed package can sup-
+port dierent circuit structures and dierent target metrics under a unied mitigation
+ow. The CNOT benchmark emphasizes repeated gate-level correction, the Bell-state
+benchmark demonstrates application-level reconstruction through CHSH evaluation,
+and the teleportation benchmark shows how the same class-based framework can be
+extended to a deeper circuit with truncation-enabled execution control. These results
+support the central claim of this thesis: the main contribution of the work lies not only
+in applying PEC, but in automating and modularizing the full mitigation process.
+
+
+
+
+                                          -39-
+Chapter VI
+
+
+
+
+Chapter VI
+Conclusions and Future Work
+VI   Conclusions and Future Work
+
+
+   This thesis develops an automated probabilistic error cancellation package for near-
+term quantum computers. The package integrates three main class-based components:
+observable-level readout mitigation, Pauli-twirling-based two-qubit gate mitigation,
+and PEC sampling with optional truncation. By organizing these modules into a
+unied workow, the proposed framework reduces the manual eort required to deploy
+PEC and improves the reproducibility of mitigation studies across multiple application
+examples.
+   The benchmark studies on CNOT circuits, Bell-state preparation, and quantum
+teleportation show that the same automation ow can support dierent circuit struc-
+tures and dierent output metrics while preserving a consistent mitigation pipeline.
+This versatility is a central contribution of the work, because it demonstrates that the
+package is not limited to a single handcrafted example. Instead, it provides a reusable
+software framework that integrates calibration, weighting, sampling, and benchmark-
+specic post-processing into a coherent mitigation system.
+   Several directions remain open for future work. In particular, one promising direc-
+tion is to combine the present class-based PEC workow with recent machine-learning-
+assisted mitigation strategies and adaptive inverse-construction schemes [29, 30, 40, 41].
+The package may also be extended to support more general noise models and hardware-
+specic calibration strategies. In addition, the truncation strategy could be further
+rened to achieve a more adaptive balance between mitigation accuracy and sampling
+cost. Such extensions would improve the usability and scalability of the package for a
+broader range of NISQ-era applications.
+
+
+
+
+                                           -40-
+REFERENCE
+
+
+
+
+ [1] J. Preskill. Quantum computing in the NISQ era and beyond. Quantum, 2:79, Aug 2018.
+    doi: 10.22331/q-2018-08-06-79.
+ [2] F. Arute.   Quantum supremacy using a programmable superconducting processor.
+    Nature, 574:505510, Oct 2019. doi: 10.1038/s41586-019-1666-5.
+ [3] R. J. Schoelkopf. Wiring up quantum systems. Nature, 451:664669, Feb 2008. doi:
+    10.1038/451664a.
+ [4] S. Krinner. Realizing repeated quantum error correction in a distance-three surface code.
+    Nature, 605:664670, May 2022. doi: 10.1038/s41586-022-04566-8.
+ [5] M. Sarovar. Detecting crosstalk errors in quantum information processors. Quantum, 4:
+    291, Jul 2020. doi: 10.22331/q-2020-09-11-321.
+ [6] B. Nachman. Unfolding quantum computer readout errors. npj Quantum Inf., 6:84, Oct
+    2020. doi: 10.1038/s41534-020-00309-7.
+ [7] A. Kandala. Error mitigation extends the computational reach of a noisy quantum
+    processor. Nature, 567:491495, Mar 2019. doi: 10.1038/s41586-019-1040-7.
+ [8] K. Bharti. Noisy intermediate-scale quantum algorithms. Rev. Mod. Phys., 94:015004,
+    Feb 2022. doi: 10.1103/RevModPhys.94.015004.
+ [9] Y. Kim. Evidence for the utility of quantum computing before fault tolerance. Nature,
+    618:500505, 2023. doi: 10.1038/s41586-023-06096-3.
+[10] L. Viola. Dynamical decoupling of open quantum systems. Phys. Rev. Lett., 82:2417
+    2421, Mar 1999. doi: 10.1103/PhysRevLett.82.2417.
+[11] B. M. Terhal. Quantum error correction for quantum memories. Rev. Mod. Phys., 87:
+    307346, Apr 2015. doi: 10.1103/RevModPhys.87.307.
+[12] C. Gidney. How to factor 2048 bit RSA integers in 8 hours. Quantum, 5:433, Apr 2021.
+    doi: 10.22331/q-2021-04-15-433.
+[13] K. Temme. Error mitigation for short-depth quantum circuits. Phys. Rev. Lett., 119:
+    180509, Nov 2017. doi: 10.1103/PhysRevLett.119.180509.
+[14] S. Endo. Hybrid quantum-classical algorithms and quantum error mitigation. J. Phys.
+    Soc. Jpn., 90:032001, Mar 2021. doi: 10.7566/JPSJ.90.032001.
+[15] Z. Cai.   Quantum error mitigation.     Rev. Mod. Phys., 95:045005, Dec 2023.        doi:
+
+                                             -41-
+REFERENCE
+
+
+    10.1103/RevModPhys.95.045005.
+[16] X. Bonet-Monroig. Low-cost error mitigation by symmetry verication. Phys. Rev. A,
+    98:062339, Dec 2018. doi: 10.1103/PhysRevA.98.062339.
+[17] M. Huo. Dual-state purication for practical quantum error mitigation. Phys. Rev. A,
+    105:022427, Feb 2022. doi: 10.1103/PhysRevA.105.022427.
+[18] E. F. Dumitrescu. Cloud quantum computing of an atomic nucleus. Phys. Rev. Lett.,
+    120:210501, May 2018. doi: 10.1103/PhysRevLett.120.210501.
+[19] A. He. Zero-noise extrapolation for quantum-gate error mitigation with identity inser-
+    tions. Phys. Rev. A, 102:012426, Jul 2020. doi: 10.1103/PhysRevA.102.012426.
+[20] R. Takagi. Fundamental limits of quantum error mitigation. npj Quantum Inf., 8:114,
+    Sep 2022. doi: 10.1038/s41534-022-00618-z.
+[21] Y. Quek. Exponentially tighter bounds on limitations of quantum error mitigation. Nat.
+    Phys., Jul 2024. doi: 10.1038/s41567-024-02536-7.
+[22] K. Schultz. Impact of time-correlated noise on zero-noise extrapolation. Phys. Rev. A,
+    106:052406, Nov 2022. doi: 10.1103/PhysRevA.106.052406.
+[23] S. Endo. Practical quantum error mitigation for near-future applications. Phys. Rev. X,
+    8:031027, Jul 2018. doi: 10.1103/PhysRevX.8.031027.
+[24] E. v. d. Berg. Probabilistic error cancellation with sparse Pauli-Lindblad models on
+    noisy quantum processors. Nat. Phys., 19:11161121, Sep 2023. doi: 10.1038/s41567-
+    023-02042-2.
+[25] W. J. Huggins. Virtual distillation for quantum error mitigation. Phys. Rev. X, 11:
+    041036, 2021. doi: 10.1103/PhysRevX.11.041036.
+[26] P. Czarnik. Error mitigation with cliord data regression. Quantum, 5:592, Dec 2021.
+    doi: 10.22331/q-2021-12-08-592.
+[27] D. Bultrini. Unifying and benchmarking state-of-the-art quantum error mitigation tech-
+    niques. Quantum, 7:1034, 2023. doi: 10.22331/q-2023-06-06-1034.
+[28] A. Strikis. Learning-based quantum error mitigation. PRX Quantum, 2:040330, Nov
+    2021. doi: 10.1103/PRXQuantum.2.040330.
+[29] C. Kim. Quantum error mitigation with articial neural network. IEEE Access, 8:
+    188853188860, 2020. doi: 10.1109/ACCESS.2020.3031607.
+[30] H. Liao. Machine learning for practical quantum error mitigation. Nat. Mach. Intell., 6:
+
+
+
+                                            -42-
+REFERENCE
+
+
+    14781486, 2024. doi: 10.1038/s42256-024-00927-2.
+[31] S. Bravyi. Mitigating measurement errors in multiqubit experiments. Phys. Rev. A, 103:
+    042605, Apr 2021. doi: 10.1103/PhysRevA.103.042605.
+[32] R. LaRose. Mitiq: A software package for error mitigation on noisy quantum computers.
+    Quantum, 6:774, Sep 2022. doi: 10.22331/q-2022-08-11-774.
+[33] C. Song. Quantum computation with universal error mitigation on a superconducting
+    quantum processor. Sci. Adv., 5(9):eaaw5686, 2019. doi: 10.1126/sciadv.aaw5686.
+[34] S. Zhang. Error-mitigated quantum gates exceeding physical delities in a trapped-ion
+    system. Nat. Commun., 11:587, 2020. doi: 10.1038/s41467-020-14376-z.
+[35] D. Qin. Error statistics and scalability of quantum error mitigation formulas. npj
+    Quantum Inf., 9:35, Apr 2023. doi: 10.1038/s41534-023-00707-7.
+[36] Steven T. Flammia and Joel J. Wallman. Ecient estimation of pauli channels. ACM
+    Trans. Quantum Comput., 1(1):3:13:32, Dec 2020. doi: 10.1145/3408039.
+[37] E. van den Berg. Model-free readout-error mitigation for quantum expectation values.
+    Phys. Rev. A, 105:032620, 2022. doi: 10.1103/PhysRevA.105.032620.
+[38] A. S. Aasen. Readout error mitigated quantum state tomography tested on supercon-
+    ducting qubits. Commun. Phys., 7:301, 2024. doi: 10.1038/s42005-024-01790-8.
+[39] K. Tsubouchi. Symmetric cliord twirling for cost-optimal quantum error mitigation in
+    early FTQC regime. npj Quantum Inf., 11:104, 2025. doi: 10.1038/s41534-025-01050-9.
+[40] I. Henao. Adaptive quantum error mitigation using pulse-based inverse evolutions. npj
+    Quantum Inf., 9:120, 2023. doi: 10.1038/s41534-023-00785-7.
+[41] T. B. Adeniyi. Adaptive neural network for quantum error mitigation. Quantum Mach.
+    Intell., 7:13, 2025. doi: 10.1007/s42484-024-00234-4.
+
+
+
+
+                                            -43-
+
